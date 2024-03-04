@@ -5,14 +5,18 @@ const mongoose = require('mongoose');
 module.exports.register = (req, res, next) => res.render('users/register');
 
 module.exports.doRegister = (req, res, next) => {
-    User.findOne({ email: req.body.email })
+    console.log('Hola');
+    User.findOne( { email: req.body.email } )
        .then((user) => {
         if (user) {
-            res.status(409).render('users/register', { user: req.body, errors: 'This email already exists'})
-        } else {
-            const user = { email: req.body.email, password: req.body.password };
+            res.status(409).render('users/register', { user: req.body, errors: { email:'This email already exists'} });
+        } else {          
+            const user = { name: req.body.name, email: req.body.email, phone:req.body.phone, password: req.body.password };
             return User.create(user)
-               .then(() => res.redirect('/login'))
+                    .then(() => {
+                        console.log('Hola5');
+                        res.redirect('/login');
+                    });
         }
        })
        .catch((error) => {

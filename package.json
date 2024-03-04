@@ -1,7 +1,7 @@
 {
   "name": "proyect2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Irontickets is a web application that functions similarly to Ticketmaster, allowing users to explore, search, and purchase tickets for live events. The application is built with modern web technologies and provides an intuitive interface to enhance the user experience.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -16,6 +16,7 @@
     "hbs": "^4.2.0",
     "http-errors": "^2.0.0",
     "mongoose": "^8.2.0",
+    "morgan": "^1.10.0",
     "nodemon": "^3.1.0"
   }
 }
