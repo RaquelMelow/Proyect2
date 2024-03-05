@@ -9,11 +9,16 @@ require('./configs/hbs.config');
 
 const app = express();
 
+app.use(express.static('public'));
 app.set('view engine', 'hbs');
 app.set('views', `${__dirname}/views`);
 app.use(logger('dev'));
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 
+//middlewares
+const { session, loadUserSession } = require('./configs/session.config');
+app.use(session);
+app.use(loadUserSession);
 
 app.use((req, res, next) => {
     res.locals.currentPath = req.path;

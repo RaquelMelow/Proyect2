@@ -1,11 +1,11 @@
 const User = require('../models/user.model');
 const mongoose = require('mongoose');
+const { sessions } = require('../middlewares/auth.middleware')
 
 
 module.exports.register = (req, res, next) => res.render('users/register');
 
 module.exports.doRegister = (req, res, next) => {
-    console.log('Hola');
     User.findOne( { email: req.body.email } )
        .then((user) => {
         if (user) {
@@ -14,7 +14,6 @@ module.exports.doRegister = (req, res, next) => {
             const user = { name: req.body.name, email: req.body.email, phone:req.body.phone, password: req.body.password };
             return User.create(user)
                     .then(() => {
-                        console.log('Hola5');
                         res.redirect('/login');
                     });
         }
@@ -38,16 +37,15 @@ module.exports.doLogin = (req, res, next) => {
     User.findOne( { email: req.body.email })
         .then((user) => {
             if(!user) {
-                res.status(401).render('users/login', { user: req.body, errors: { password: 'Some information is incorrect'}})
+                res.status(401).render('users/login', { user: req.body, errors: { password: 'Email or password is invalid'}})
             } else {
                 return user.checkPassword(req.body.password)
                 .then((match) => {
                     if (match) {
-                        //FALTA LA SESION AQUÍ
-                        //req.session.userId = user.id;
+                        req.session.userId = user.id;
                         res.redirect('/');
                     } else {
-                        res.status(401).render('users/login', { user: req.body, errors: { password:  'Some information is incorrect'}})
+                        res.status(401).render('users/login', { user: req.body, errors: { password:  'Email or password is invalid'}})
                     }
                 })
             }
@@ -55,7 +53,15 @@ module.exports.doLogin = (req, res, next) => {
         .catch(next);
 }
 
-//FALTA LOGGOUT
-//PERFIL
+module.exports.logout = (req, res, next) => {
+    req.session.destroy();
+    req.session = null;
+    res.clearCookie("connect.sid");
+    res.redirect('/login');
+}
+
+module.exports.profile = (req, res, next) => {
+    res.render('users/profile');
+}
 //BORRAR USUARIO
 

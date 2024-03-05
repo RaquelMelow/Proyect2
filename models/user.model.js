@@ -25,6 +25,9 @@ const userSchema = new Schema({
         required: [true, 'Password is required'],
         minLength: [8, 'Password needs at least 8 characters']
     },
+    isAdmin: {
+      type: Boolean
+    },
  },
  { timestamps: true }
 )
@@ -48,5 +51,5 @@ userSchema.pre('save', function (next) {
   };
   
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("user", userSchema);
 module.exports = User;
