@@ -57,7 +57,7 @@ module.exports.logout = (req, res, next) => {
     req.session.destroy();
     req.session = null;
     res.clearCookie("connect.sid");
-    res.redirect('/login');
+    res.redirect('/');
 }
 
 module.exports.profile = (req, res, next) => {

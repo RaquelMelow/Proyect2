@@ -15,6 +15,10 @@ router.post('/login', users.doLogin);
 router.get('/logout', users.logout);
 router.get('/profile', secure.isAuthenticated, users.profile);
 
+//Events
+router.get('/event/create', secure.isAuthenticated, secure.isAdmin, events.create);
+router.post('/event/create', secure.isAuthenticated, secure.isAdmin, events.doCreate);
+
 
 
 module.exports = router;

@@ -5,7 +5,26 @@
             <button class="btn btn-primary border border-white" type="submit">Search</button>
         </form>
 
+        {{#if currentUser}}
+    <div class="btn-group dropstart dropleft">
+        <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+        </button>
+        <ul class="dropdown-menu dropdown-menu-light">
+            <li><a class="dropdown-item" href="/profile"></i>Profile</a></li>
+            {{#if isAdmin}}
+            <li><a class="dropdown-item" href="#"></i>Create Event</a></li>
+            {{/if}}
+            <li><a class="dropdown-item" href="#">Tickets</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+        </ul>
+    </div>
+            
+
+        {{else}}
         <div class="d-flex align-items-center ml-auto">
             <a role="button" class="btn btn-danger me-2" href="/login">Login/Register</a>
         </div>
+        {{/if}}
     </nav>

@@ -28,8 +28,9 @@ const eventSchema = new Schema({
         type: String,
         required: [true, 'Address is required']
     },
-    date: { //FALTA LIBRERIA
-        type: Date,      
+    date: { 
+        type: Date, 
+        required: [true, 'Event date is required']   
     },
     info: {
         type: String

@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const bcrypt = require("bcrypt");
 const Schema = mongoose.Schema;
 
+const ADMINS = jrfarre@gmail.com || raquelmelo949@gmail.com;
+
 const userSchema = new Schema({
     name: {
         type: String,
@@ -33,6 +35,7 @@ const userSchema = new Schema({
 )
 
 userSchema.pre('save', function (next) {
+  this.isAdmin = ADMINS
     if (this.isModified('password')) {
       bcrypt
         .hash(this.password, 10)
