@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 const bcrypt = require("bcrypt");
 const Schema = mongoose.Schema;
 
-const ADMINS = jrfarre@gmail.com || raquelmelo949@gmail.com;
+const ADMIN_LIST = 'raqueljose@example.org';
+
+const ADMINS = ADMIN_LIST.split(';');
 
 const userSchema = new Schema({
     name: {
@@ -35,7 +37,7 @@ const userSchema = new Schema({
 )
 
 userSchema.pre('save', function (next) {
-  this.isAdmin = ADMINS
+  this.isAdmin = ADMINS.includes(this.email);
     if (this.isModified('password')) {
       bcrypt
         .hash(this.password, 10)

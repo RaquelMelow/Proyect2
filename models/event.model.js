@@ -11,9 +11,16 @@ const eventSchema = new Schema({
     },
     photo: {
         type: String,
-        //default:, //FALTA UN JPG 
-        eventType: {
-            type: [String]
+        /*required: [true, 'Photo is required'],*/
+        validate: {
+            validator: function (value) {
+                try {
+                    new URL (value)
+                      return true
+                } catch(error) {
+                    return false
+                }
+            }
         }
     },
     eventType: {
@@ -24,7 +31,7 @@ const eventSchema = new Schema({
         },
         required: [true, 'Event type is required.'],
     },
-    address: {
+    location: {
         type: String,
         required: [true, 'Address is required']
     },
@@ -35,7 +42,6 @@ const eventSchema = new Schema({
     info: {
         type: String
     }
-
 })
 
 const Event = mongoose.model('event', eventSchema);
