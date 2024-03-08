@@ -22,6 +22,10 @@ module.exports.create = (req, res, next) => res.render('admin/create-event');
 
 module.exports.doCreate = (req, res, next) => {
     const event = req.body;
+
+    if (req.file) {
+      event.photo = req.file.path
+    }
     
     Event
       .create(event)
@@ -39,5 +43,30 @@ module.exports.delete = (req, res, next) => {
     Event.findByIdAndDelete(req.params.idEvent)
     .then(() => res.redirect('/events'))
     .catch((error) => next(error))
+};
+
+module.exports.edit = (req, res, next) => {
+  const id = req.params.idEvent;
+  Event
+    .findById(id)
+    .then((event) => {
+      if (!event) {
+        const error = new Error('Event not found');
+            error.status = 404;
+            next(error);
+      } else {
+        res.render('admin/edit', { event })
+      }
+    })
+    .catch(next);
 }
 
+module.exports.doEdit = (req, res, next) => {
+  const event = req.body;
+
+  Event.findByIdAndUpdate(req.params.idEvent, event, { runValidators: true })
+    .then(() => {
+        res.redirect("/events");
+    })
+    .catch(error => next(error));
+}

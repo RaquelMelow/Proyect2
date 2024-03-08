@@ -5,21 +5,21 @@
         <div class="col-12 col-md-4">
             <div class="card">
             <div class="card-body">
-                <h5 class="card-title fw-light">Create Event</h5>
-                    <form method="post"  action="/events/create">
+                <h5 class="card-title fw-light">Edit Event</h5>
+                    <form action="/events/{{event._id}}/edit" method="post" enctype="application/x-www-form-urlencoded">
                         {{!--NAME--}}
                         <div class="form-group mb-1">
-                            <label for="name">Name of the event<span class="text-danger">*</span></label>
+                            <label for="name">Name of the event</label>
                             <input type="name" class="form-control{{#if errors.name }}is-invalid{{/if}}"  name="name" placeholder="Name of the event" value="{{event.name}}">
                             {{#if errors.name }}<div class="invalid-feedback">{{errors.name}}</div>{{/if}}
                         </div>
                     
-                        {{!--PHOTO--}}
+                        {{!--PHOTO
                        <div class="mb-3">
                             <label class="form-label">Photo</label>
                             <input name="photo" type="file" class="form-control {{#if errors.photo }}is-invalid{{/if}}" value="{{event.photo}}" />
                             {{#if errors.photo }}<div class="invalid-feedback">{{ errors.photo }}</div>{{/if}}
-                        </div>
+                        </div>--}}
                         
                         {{!--TIPO DE EVENTO--}}
 
@@ -55,14 +55,14 @@
                 </div>
                         {{!--LOCATION--}}
                         <div class="form-group mb-1">
-                            <label for="location">Location<span class="text-danger">*</span></label>
+                            <label for="location">Location</label>
                             <input type="location" class="form-control{{#if errors.location }}is-invalid{{/if}}" name="location" placeholder="Enter the location of the event"value="{{event.location}}">
                             {{#if errors.location }}<div class="invalid-feedback">{{errors.location}}</div>{{/if}}
                         </div>
 
                         {{!--DATE--}}
                         <div class="form-group mb-1">
-                            <label for="date">Date<span class="text-danger">*</span></label>
+                            <label for="date">Date</label>
                             <input type="date" class="form-control{{#if errors.date }}is-invalid{{/if}}" name="date" placeholder="Enter the date of the event"value="{{event.date}}">
                             {{#if errors.date }}<div class="invalid-feedback">{{errors.date}}</div>{{/if}}
                         </div>
@@ -74,14 +74,10 @@
                             <textarea name="info" id="info-md" class="form-control{{#if errors.info }}is-invalid{{/if}}">{{event.info}}</textarea>
                             {{#if errors.info }}<div class="invalid-feedback">{{errors.info}}</div>{{/if}}
                         </div>
-                        
-
-                        <div class="form-group">
-                            <h6><span class="text-danger">*</span>These fields are required</h6>
-                        </div>
 
                         <div class="d-grid gap-2 mt-2">
-                        <button type="submit" class="btn btn-primary">Create event</button>
+
+                        <button type="submit" class="btn btn-primary">Edit event</button>
                         </div>
 
                         

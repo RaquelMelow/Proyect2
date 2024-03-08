@@ -17,7 +17,8 @@
         <h5 class="card-title">{{name}}</h5>
         <p class="card-text">{{date}}.</p>
         <div class="btn-wrapper text-center d-flex justify-content-between">
-            <button href="#" class="btn btn-primary me-md-2 ">More info</button>
+            <a href="/events/{{event._id}}/edit" method="get">
+            <button type="submit" class="btn btn-primary me-md-2 ">Edit</button>
             <form action="/events/{{event._id}}/delete" method="post">
             <button type="submit" class="btn btn-danger">Delete</button>
             </form>
