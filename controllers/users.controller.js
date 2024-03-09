@@ -1,5 +1,6 @@
 const User = require('../models/user.model');
 const mongoose = require('mongoose');
+const createError = require('http-errors');
 const { sessions } = require('../middlewares/auth.middleware')
 
 
@@ -70,7 +71,7 @@ module.exports.profile = (req, res, next) => {
 }
 
 module.exports.delete = (req, res, next) => {
-    const userId = req.params.idUser;
+    const userId = req.user.id;
     User.findById(userId)
         .then((user) => { 
             if(!user) {
@@ -87,20 +88,34 @@ module.exports.delete = (req, res, next) => {
 
 module.exports.edit = (req, res, next) => {
     const userId = req.params.idUser;
-    User
-    .findById(userId)
-    .then((user) => {
-        if(!user) {
-            next(createError(404, "User not found"));
-        } else {
-            res.render('user/edit', {user})
+  
+    User.findById(userId)
+      .then((user) => {
+        if (!user) {
+          return res.status(404).render('users/edit', { message: 'User not found' });
+        } else if (userId != req.user.id) {
+          return res.status(403).render('users/edit', { message: 'Forbidden' });
         }
-    })
-    .catch(next);
-}
+        return user; 
+      })
+      .then((user) => { 
+        res.render('users/edit', { user });
+      })
+      .catch((error) => {
+        if (error instanceof mongoose.Error.ValidationError) {
+          return res.status(400).render('users/edit', {
+            message: 'Validation errors',
+            errors: error.errors,
+            user: req.body,
+          });
+        } else {
+          next(error);
+        }
+      });
+  };
 
 module.exports.doEdit = (req, res, next) => {
-    const userId = req.params.idUser;
+    const userId = req.user.id;
 
     User.findByIdAndUpdate(userId, req.body, {runValidators: true})
         .then((user) => {
@@ -108,7 +123,9 @@ module.exports.doEdit = (req, res, next) => {
                 next(createError(404, "User not found"));
             } else if (userId != req.user.id) {
                 next(createError(403, "Forbidden"));
-            } 
+            } else {
+                res.redirect('/profile');
+            }
             
         }) 
         .catch((error) => {

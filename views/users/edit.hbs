@@ -1,53 +1,21 @@
-<div class="row justify-content-center mb-3">
-  <div class="col-12 col-md-4 text-center"></div>
-</div>
-<div class="row justify-content-center">
-  <div class="col-12 col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title fw-light">Edit account</h5>
-            <form method="post"  action="/register">
-                {{!--NAME--}}
-                <div class="form-group mb-1">
-                    <label for="name">Name<span class="text-danger">*</span></label>
-                    <input type="name" class="form-control{{#if errors.name }}is-invalid{{/if}}"  name="name" placeholder="Enter Your Name" value="{{user.name}}">
-                    {{#if errors.name }}<div class="invalid-feedback">{{errors.name}}</div>{{/if}}
-                </div>
-               
-               {{!--EMAIL--}}
-                <div class="form-group mb-1">
-                    <label for="email">Email<span class="text-danger">*</span></label>
-                    <input type="email" class="form-control{{#if errors.email }}is-invalid{{/if}}" name="email" placeholder="Enter your email" value="{{user.email}}">
-                    {{#if errors.email }}<div class="invalid-feedback">{{errors.email}}</div>{{/if}}
-                </div>
-                {{!--PHONE- Falta libreria de prefijos--}}
-                <div class="form-group mb-1">
-                    <label for="mobile">Mobile Number <span class="text-danger">*</span></label>
-                    <input type="phone" class="form-control{{#if errors.phone }}is-invalid{{/if}}" name="phone" placeholder="Enter your Mobile Number" value="{{user.phone}}">
-                    {{#if errors.phone }}<div class="invalid-feedback">{{errors.phone}}</div>{{/if}}
-                </div>
-                {{!--PASSWORD--}}
-                <div class="form-group mb-1">
-                    <label for="password">Password <span class="text-danger">*</span></label>
-                    <input type="password" class="form-control{{#if errors.password }}is-invalid{{/if}}" name="password" placeholder="Enter Your Password"value="{{user.password}}">
-                    {{#if errors.password }}<div class="invalid-feedback">{{errors.password}}</div>{{/if}}
-                </div>
-                {{!--CONFIRM PASSWORD
-                <div class="form-group mb-1">
-                    <label for="password">Confirm Password <span class="text-danger">*</span></label>
-                    <input type="cpassword" class="form-control" name="cpassword" id="cpassword" placeholder="Enter Same as Password" value="{{cpassword}}">
-                </div>--}}
 
-                <div class="form-group">
-                    <p><span class="text-danger">*</span>These fields are required</p>
-                </div>
-
-                <div class="d-grid gap-2 mt-2">
-                   <button type="submit" class="btn btn-primary">Register</button>
-                </div>
-                
-            </form>
-        </div>
-    </div>
+  <title>Edit Profile</title>
+  <div class="container">
+    <h1>Edit Profile</h1>
+    <form method="post" action="/edit">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{ user.name }}">
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="phone" class="form-control" id="phone" name="phone" value="{{ user.phone }}">
+      </div>
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
   </div>
-</div>           
+
