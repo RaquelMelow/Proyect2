@@ -17,6 +17,9 @@ router.get('/login', users.login);
 router.post('/login', users.doLogin);
 router.get('/logout', users.logout);
 router.get('/profile', secure.isAuthenticated, users.profile);
+router.post('/delete', secure.isAuthenticated, users.delete);
+router.get('/edit', secure.isAuthenticated, users.edit);
+router.post('/edit', secure.isAuthenticated, users.doEdit);
 
 // Events CRUD- only ADMIN
 router.get('/events', secure.isAuthenticated, secure.isAdmin, events.list);
@@ -24,7 +27,7 @@ router.get('/events/create', secure.isAuthenticated, secure.isAdmin, events.crea
 router.post('/events/create', secure.isAuthenticated, secure.isAdmin, multer.single('photo'), events.doCreate);
 router.post('/events/:idEvent/delete', secure.isAuthenticated, secure.isAdmin, events.delete);
 router.get('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, events.edit);
-router.post('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, events.doEdit);
+router.post('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, multer.single('photo'), events.doEdit);
 
 
 

@@ -64,9 +64,23 @@ module.exports.edit = (req, res, next) => {
 module.exports.doEdit = (req, res, next) => {
   const event = req.body;
 
+  if (req.file) {
+    event.photo = req.file.path
+  }
+
   Event.findByIdAndUpdate(req.params.idEvent, event, { runValidators: true })
-    .then(() => {
+    .then((event) => {
+      if (!event) {
+        next(createError(404, 'Event not found'))
+      } else {
         res.redirect("/events");
+      }
     })
-    .catch(error => next(error));
+    .catch((error) => {
+      if (error instanceof mongoose.Error.ValidationError) {
+        res.status(400).render('admin/edit', { event: req.body, errors: error.errors})
+      } else {
+        next(error);
+      }
+    })
 }

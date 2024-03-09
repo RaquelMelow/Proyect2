@@ -6,8 +6,8 @@ const multer = require('multer');
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: 'Ironticket',
-    allowed_formats: ['jpg', 'png'],
+    folder: 'ironticket',
+    formats: ['jpg', 'png'],
   },
  });
 

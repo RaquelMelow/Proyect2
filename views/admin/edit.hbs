@@ -6,7 +6,7 @@
             <div class="card">
             <div class="card-body">
                 <h5 class="card-title fw-light">Edit Event</h5>
-                    <form action="/events/{{event._id}}/edit" method="post" enctype="application/x-www-form-urlencoded">
+                    <form action="/events/{{event._id}}/edit" method="post" enctype="multipart/form-data">
                         {{!--NAME--}}
                         <div class="form-group mb-1">
                             <label for="name">Name of the event</label>
@@ -14,20 +14,20 @@
                             {{#if errors.name }}<div class="invalid-feedback">{{errors.name}}</div>{{/if}}
                         </div>
                     
-                        {{!--PHOTO
+                        {{!--PHOTO--}}
                        <div class="mb-3">
                             <label class="form-label">Photo</label>
                             <input name="photo" type="file" class="form-control {{#if errors.photo }}is-invalid{{/if}}" value="{{event.photo}}" />
                             {{#if errors.photo }}<div class="invalid-feedback">{{ errors.photo }}</div>{{/if}}
-                        </div>--}}
+                        </div>
                         
                         {{!--TIPO DE EVENTO--}}
 
-                        <div class="mb-3">
-                    <div class="row">
-                        <div class="col-5">
+                    <div class="mb-3">
+                        <div class="row">
+                          <div class="col-5">
                             <label class="form-label me-2">Select the type of event:</label>
-                        </div>
+                          </div>
                         <div class="col-">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input me-1" type="radio" name="eventType" value="Music" {{#if event }}{{#if (inSelection event.eventType 'Music') }}checked{{/if}}{{/if}} />
@@ -85,4 +85,4 @@
                 </div>
             </div>
         </div>
-        </div>           
+</div>           

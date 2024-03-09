@@ -11,14 +11,14 @@ const eventSchema = new Schema({
     },
     photo: {
         type: String,
-        default: "https://res.cloudinary.com/dznumjlzc/image/upload/v1709897178/Ironticket/events_hspcxt.jpg",
+        default: 'https://res.cloudinary.com/dznumjlzc/image/upload/v1709897178/Ironticket/events_hspcxt.jpg',
         validate: {
             validator: function (image) {
                 try {
-                    new URL (image)
-                    return true
-                } catch(error) {
-                    return false
+                  new URL (image)
+                  return true
+                } catch (error) {
+                  return false
                 }
             }
         }
