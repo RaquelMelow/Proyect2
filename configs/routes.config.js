@@ -3,8 +3,11 @@ const router = express.Router();
 
 const users = require('../controllers/users.controller');
 const misc = require('../controllers/misc.controller');
-const secure = require('../middlewares/auth.middleware');
 const events = require('../controllers/events.controller');
+const ticket = require('../controllers/ticket.controller');
+const info = require('../controllers/info.controller');
+
+const secure = require('../middlewares/auth.middleware');
 const multer = require('./multer.config')
 
 
@@ -29,7 +32,15 @@ router.post('/events/:idEvent/delete', secure.isAuthenticated, secure.isAdmin, e
 router.get('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, events.edit);
 router.post('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, multer.single('photo'), events.doEdit);
 
+// Tickets CRUD - only ADMIN
+router.get('ticket/:idEvent/create', secure.isAuthenticated, secure.isAdmin, ticket.create);
+router.post('ticket/:idEvent/create', secure.isAuthenticated, secure.isAdmin, ticket.doCreate);
 
 
+
+
+// Info- footer
+router.get('/about-us', info.aboutUs);
+router.get('/help', info.help);
 
 module.exports = router;
