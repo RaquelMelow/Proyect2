@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-ticketTypeEnum = ['Stadium stands', 'Stadium track', 'V.I.P.']
 
 const ticketSchema = new Schema({
     idEvent: {
@@ -11,10 +10,6 @@ const ticketSchema = new Schema({
     },
     ticketType: {
         type: String,
-            enum: {
-                values: ticketTypeEnum,
-                message: 'Invalid ticket type. Choose from: Stadium stands, Stadium track, V.I.P.',
-            },
         required: [true, 'Ticket type is required.'],
     },
     

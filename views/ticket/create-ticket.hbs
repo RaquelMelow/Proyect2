@@ -1,1 +1,37 @@
-hola
+<div class="row justify-content-center" style="margin-top: 40px;">
+        <div class="col-2">
+            <h2> Create New Ticket</h2>
+            <form action="/ticket/{{event._id}}/create" method="post">
+            <div class="mb-3">
+                <p>Ticket type</p>
+                <label class="form-label">Type of the ticket</label>
+                <input type="text" class="form-control" {{#if errors.ticketType }}is-invalid{{/if}} name="ticketType" value="{{ticket.ticketType}}">
+                {{#if errors.ticketType}}
+                  <div class="invalid-feedback">
+                    {{errors.ticketType}}
+                  </div>
+                {{/if}}
+            </div>
+            <div class="mb-3">
+                <p>Price of tickets</p>
+                <label class="form-label">Price</label>
+                <input type="number" class="form-control" {{#if errors.price }}is-invalid{{/if}} id="price-{{ticket._id}}" name="price" value="{{ticket.price}}" min="0"/>
+                {{#if errors.price}}
+                  <div class="invalid-feedback">
+                    {{errors.price}}
+                  </div>
+                {{/if}}
+            </div>
+            <button type="submit" class="btn btn-primary">Save tickets</button>
+            </form>
+        </div>
+    </div> 
+        <div class="d-flex justify-content-between">
+            
+            <a class="btn btn-link" href="/events/{{event._id}}/edit">Back to edit event</a>
+        </div>
+</div>
+
+<p>
+    {{errors}}
+</p>

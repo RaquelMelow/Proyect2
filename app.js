@@ -30,6 +30,11 @@ app.use((req, res, next) => {
 const routes = require('./configs/routes.config');
 app.use('/', routes);
 
+app.use((err, req, res, next) => {
+    console.error(err)
+    res.send(err)
+})
+
 
 const port = 3000;
 app.listen(port, () => console.info(`Application running at port ${port}`));

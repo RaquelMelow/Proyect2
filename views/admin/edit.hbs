@@ -15,7 +15,7 @@
                         </div>
                     
                         {{!--PHOTO--}}
-                       <div class="mb-3">
+                        <div class="mb-3">
                             <label class="form-label">Photo</label>
                             <input name="photo" type="file" class="form-control {{#if errors.photo }}is-invalid{{/if}}" value="{{event.photo}}" />
                             {{#if errors.photo }}<div class="invalid-feedback">{{ errors.photo }}</div>{{/if}}
@@ -23,36 +23,36 @@
                         
                         {{!--TIPO DE EVENTO--}}
 
-                    <div class="mb-3">
-                        <div class="row">
-                          <div class="col-5">
-                            <label class="form-label me-2">Select the type of event:</label>
-                          </div>
-                        <div class="col-">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input me-1" type="radio" name="eventType" value="Music" {{#if event }}{{#if (inSelection event.eventType 'Music') }}checked{{/if}}{{/if}} />
-                                <label class="form-check-label" for="Music">Music</label>
+                        <div class="mb-3">
+                            <div class="row">
+                            <div class="col-5">
+                                <label class="form-label me-2">Select the type of event:</label>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input me-1" type="radio" name="eventType" value="Festivals" {{#if event }}{{#if (inSelection event.eventType 'Festivals') }}checked{{/if}}{{/if}} />
-                                <label class="form-check-label" for="Festivals">Festivals</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input me-1" type="radio" name="eventType" value="Theatre" {{#if event }}{{#if (inSelection event.foodType 'Theatre') }}checked{{/if}}{{/if}} />
-                                <label class="form-check-label" for="Theatre">Theatre</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input me-1" type="radio" name="eventType" value="Sports" {{#if event }}{{#if (inSelection event.foodType 'Sports') }}checked{{/if}}{{/if}} />
-                                <label class="form-check-label" for="Sports">Sports</label>
+                            <div class="col-">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input me-1" type="radio" name="eventType" value="Music" {{#if event }}{{#if (inSelection event.eventType 'Music') }}checked{{/if}}{{/if}} />
+                                    <label class="form-check-label" for="Music">Music</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input me-1" type="radio" name="eventType" value="Festivals" {{#if event }}{{#if (inSelection event.eventType 'Festivals') }}checked{{/if}}{{/if}} />
+                                    <label class="form-check-label" for="Festivals">Festivals</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input me-1" type="radio" name="eventType" value="Theatre" {{#if event }}{{#if (inSelection event.foodType 'Theatre') }}checked{{/if}}{{/if}} />
+                                    <label class="form-check-label" for="Theatre">Theatre</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input me-1" type="radio" name="eventType" value="Sports" {{#if event }}{{#if (inSelection event.foodType 'Sports') }}checked{{/if}}{{/if}} />
+                                    <label class="form-check-label" for="Sports">Sports</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     {{#if errors.eventType }}
                         <div class="invalid-feedback">
                             {{ errors.eventType }}
                         </div>
                     {{/if}}
-                </div>
+                        </div>
                         {{!--LOCATION--}}
                         <div class="form-group mb-1">
                             <label for="location">Location</label>
@@ -76,13 +76,15 @@
                         </div>
 
                         <div class="d-grid gap-2 mt-2">
-
-                        <button type="submit" class="btn btn-primary">Edit event</button>
+                           <button type="submit" class="btn btn-primary">Edit event</button>
                         </div>
 
-                        
                     </form>
+
                 </div>
+                    <div class="col-3 text-center d-flex flex-column justify-content-center">
+                         <a class="w-100 d-flex justify-content-center" href="/ticket/{{event.id}}/create" data-bs-toggle="tooltip" data-bs-title="{{this.ticketType}}">Add ticket</a>
+                    </div> 
             </div>
         </div>
 </div>           

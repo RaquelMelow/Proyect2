@@ -33,8 +33,8 @@ router.get('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, even
 router.post('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, multer.single('photo'), events.doEdit);
 
 // Tickets CRUD - only ADMIN
-router.get('ticket/:idEvent/create', secure.isAuthenticated, secure.isAdmin, ticket.create);
-router.post('ticket/:idEvent/create', secure.isAuthenticated, secure.isAdmin, ticket.doCreate);
+router.get('/ticket/:idEvent/create', secure.isAuthenticated, secure.isAdmin, ticket.create);
+router.post('/ticket/:idEvent/create', secure.isAuthenticated, secure.isAdmin, ticket.doCreate);
 
 
 

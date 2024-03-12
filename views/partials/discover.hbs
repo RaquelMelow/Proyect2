@@ -1,0 +1,20 @@
+
+<div class="card">
+  <div class="sub-card category">
+    {{#each events as |event|}}
+    <span class="text_span">{{event.name}}</span>
+    <svg
+      class="icon_svg"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"
+    >
+    </svg>
+  </div>
+  <div class="card_container">
+    <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
+  </div>
+  <div class="sub-card named">
+    <span class="text_span">{{event.eventType}}</span>
+    {{/each}}
+  </div>
+</div>

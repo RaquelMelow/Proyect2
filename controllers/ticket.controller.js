@@ -13,15 +13,17 @@ module.exports.create = (req, res, next) => {
 
 module.exports.doCreate = (req, res, next) => {
     const { ticketType, price } = req.body;
-    const ticket = new Ticket ({ ticketType, price});
+    const ticket = { ticketType, price };
     ticket.idEvent = req.params.idEvent;
+    ticket.idUser = req.user.id
 
     Ticket
       .create(ticket)
       .then(() => res.redirect(`/events/${req.params.idEvent}/edit`))
       .catch(error => {
         if (error instanceof mongoose.Error.ValidationError) {
-            res.status(400).render('ticket/create-ticket', { ticket, errors: error,errors });
+          console.log(error.errors)
+            res.status(400).render('ticket/create-ticket', { ticket, errors: error.errors, event: { _id: ticket.idEvent } });
         } else {
             next(error);
         }

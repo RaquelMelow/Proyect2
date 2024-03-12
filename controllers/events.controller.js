@@ -21,12 +21,13 @@ module.exports.list = (req, res, next) => {
 module.exports.create = (req, res, next) => res.render('admin/create-event');
 
 module.exports.doCreate = (req, res, next) => {
+  console.log('áqui estoy')
     const event = req.body;
 
     if (req.file) {
       event.photo = req.file.path
     }
-    
+
     Event
       .create(event)
       .then((event) => res.redirect('/events'))
