@@ -1,0 +1,21 @@
+
+  <title>Edit Profile</title>
+  <div class="container">
+    <h1>Edit Profile</h1>
+    <form method="post" action="/edit">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{ user.name }}">
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="phone" class="form-control" id="phone" name="phone" value="{{ user.phone }}">
+      </div>
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+  </div>
+

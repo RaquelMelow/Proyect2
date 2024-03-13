@@ -1,0 +1,87 @@
+
+<div class="row justify-content-center mb-4 form-container mt-4">
+    <div class="col-12 col-md-4 text-center">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title fw-light">Create Event</h5>
+                <form method="post" action="/events/create" enctype="multipart/form-data">
+                    <!-- NAME -->
+                    <div class="form-group mb-1">
+                        <label for="name">Name of the event<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control{{#if errors.name}} is-invalid{{/if}}" name="name" placeholder="Name of the event" value="{{event.name}}">
+                        {{#if errors.name}}<div class="invalid-feedback">{{errors.name}}</div>{{/if}}
+                    </div>
+
+                    <!-- PHOTO -->
+                    <div class="mb-3">
+                        <label class="form-label">Photo</label>
+                        <input name="photo" type="file" class="form-control {{#if errors.photo}}is-invalid{{/if}}" value="{{event.photo}}" />
+                        {{#if errors.photo}}<div class="invalid-feedback">{{errors.photo}}</div>{{/if}}
+                    </div>
+
+                    <!-- TIPO DE EVENTO -->
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-5">
+                                <label class="form-label me-2">Select the type of event:</label>
+                            </div>
+                            <div class="col-">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input me-1" type="radio" name="eventType" value="Music" {{#if event}}{{#if (inSelection event.eventType 'Music') }}checked{{/if}}{{/if}} />
+                                    <label class="form-check-label" for="Music">Music</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input me-1" type="radio" name="eventType" value="Festivals" {{#if event}}{{#if (inSelection event.eventType 'Festivals') }}checked{{/if}}{{/if}} />
+                                    <label class="form-check-label" for="Festivals">Festivals</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input me-1" type="radio" name="eventType" value="Theatre" {{#if event}}{{#if (inSelection event.foodType 'Theatre') }}checked{{/if}}{{/if}} />
+                                    <label class="form-check-label" for="Theatre">Theatre</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input me-1" type="radio" name="eventType" value="Sports" {{#if event}}{{#if (inSelection event.foodType 'Sports') }}checked{{/if}}{{/if}} />
+                                    <label class="form-check-label" for="Sports">Sports</label>
+                                </div>
+                            </div>
+                        </div>
+                        {{#if errors.eventType}}
+                            <div class="invalid-feedback">
+                                {{ errors.eventType }}
+                            </div>
+                        {{/if}}
+                    </div>
+
+                    <!-- LOCATION -->
+                    <div class="form-group mb-1">
+                        <label for="location">Location<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control{{#if errors.location}} is-invalid{{/if}}" name="location" placeholder="Enter the location of the event" value="{{event.location}}">
+                        {{#if errors.location}}<div class="invalid-feedback">{{errors.location}}</div>{{/if}}
+                    </div>
+
+                    <!-- DATE -->
+                    <div class="form-group mb-1">
+                        <label for="date">Date<span class="text-danger">*</span></label>
+                        <input type="date" class="form-control{{#if errors.date}} is-invalid{{/if}}" name="date" placeholder="Enter the date of the event" value="{{event.date}}">
+                        {{#if errors.date}}<div class="invalid-feedback">{{errors.date}}</div>{{/if}}
+                    </div>
+
+                    <!-- INFO -->
+                    <div class="form-group mb-1 {{#if errors.info}}is-invalid{{/if}}">
+                        <label class="col-md-4 control-label" for="info">Additional info</label>
+                        <hr class="dropdown-divider my-3">
+                        <textarea name="info" id="info-md" class="form-control{{#if errors.info}} is-invalid{{/if}}">{{event.info}}</textarea>
+                        {{#if errors.info}}<div class="invalid-feedback">{{errors.info}}</div>{{/if}}
+                    </div>
+
+                    <div class="form-group">
+                        <h6><span class="text-danger">*</span>These fields are required</h6>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-2">
+                        <button type="submit" class="btn btn-primary">Create event</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
