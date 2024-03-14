@@ -1,3 +1,15 @@
+.logo {
+  background-image: url('../img/navbar/logoironticket.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 200px;
+  height: 40px; 
+  color: transparent; 
+  text-shadow: none; 
+}
+
+
 body {
   margin-bottom: 20px;
 }
