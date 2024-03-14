@@ -11,6 +11,7 @@
 
 
 body {
+  font-family: Arial;
   margin-bottom: 20px;
 }
 
@@ -57,7 +58,59 @@ footer {
   }
 }
 
-/* CARDS DISCOVERS */
+/*-------------------------LOGIN-REGISTER------------------------- */
+
+/*--------- Login container Form Event ----------*/
+
+.box-area {
+  width: 930px;
+}
+/*--------- Right Box ----------*/
+
+.right-box {
+  padding: 40px 30px 40px 40px;
+}
+/*--------- Custom Placeholder ----------*/
+
+::placeholder {
+  font-size: 16px;
+}
+
+/*--------- For Small Screens ----------*/
+
+@media only screen and (max-width: 768px){
+
+  .box-area {
+    margin: 0 10px;
+  }
+  .left-box {
+    height: 100px;
+    overflow: hidden;
+  }
+  .right-box{
+    padding: 20px;
+  }
+}
+
+/* ------------------------PROFILE LIST------------------------ */
+
+
+.edit-icon {
+  background-color: transparent;
+  color: transparent; 
+}
+/* ------------------------CARDS EVENT LIST------------------------ */
+
+.event-list {
+  width: 18rem;
+  border-color: transparent;
+}
+
+.event-list .card-body {
+  border-color: transparent; 
+}
+
+/* ------------------------CARDS DISCOVERS------------------------ */
 
 .card-container {
   max-width: 500px;
