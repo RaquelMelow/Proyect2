@@ -33,10 +33,10 @@ const paySchema = new Schema({
     idUser: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: "user"
+        ref: "User"
     }
 })
 
-const pay = mongoose.model("pay", ticketSchema);
+const Pay = mongoose.model("Pay", paySchema);
 
 module.exports = Pay;

@@ -7,7 +7,7 @@
       {{#each events as |event|}}
         {{#isEqual event.eventType "Music"}}
             <div class="card-container" style="max-width: 500px; max-height: 600px; margin: 20px;">
-              <a class="card event-card" href="/order/{{event._id}}/create">
+              <a class="card event-card" href="/events/{{event._id}}/details">
                 <div class="card-inner">
                   <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
                 </div>

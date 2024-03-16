@@ -45,12 +45,12 @@ const eventSchema = new Schema({
 })
 
 eventSchema.virtual('tickets', {
-    ref: 'ticket',
+    ref: 'Ticket',
     localField: '_id',
-    foreignField: 'ticket',
+    foreignField: 'idEvent',
     justOne: false
 });
 
-const Event = mongoose.model('event', eventSchema);
+const Event = mongoose.model('Event', eventSchema);
 
 module.exports = Event;

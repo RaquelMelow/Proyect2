@@ -33,12 +33,15 @@ router.post('/events/:idEvent/delete', secure.isAuthenticated, secure.isAdmin, e
 router.get('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, events.edit);
 router.post('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, multer.single('photo'), events.doEdit);
 
-// Tickets CRUD - only ADMIN
+
+// Tickets CRUD - only ADMIN -Cambiar ruta
 router.get('/ticket/:idEvent/create', secure.isAuthenticated, secure.isAdmin, ticket.create);
 router.post('/ticket/:idEvent/create', secure.isAuthenticated, secure.isAdmin, ticket.doCreate);
 
-// Order
-router.get('/order/:idEvent/create', order.create);
+//Events - User
+router.get('/events/:idEvent/details', events.details);
+// Order - User
+router.post('/events/:idEvent/orders', secure.isAuthenticated, order.doCreate);
 
 
 

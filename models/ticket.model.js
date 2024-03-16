@@ -6,7 +6,7 @@ const ticketSchema = new Schema({
     idEvent: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: "event"
+        ref: "Event"
     },
     ticketType: {
         type: String,
@@ -19,6 +19,6 @@ const ticketSchema = new Schema({
     },
 })
 
-const Ticket = mongoose.model("ticket", ticketSchema);
+const Ticket = mongoose.model("Ticket", ticketSchema);
 
 module.exports = Ticket;

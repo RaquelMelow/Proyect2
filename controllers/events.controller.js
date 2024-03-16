@@ -1,6 +1,7 @@
 const createError = require("http-errors");
 const Event = require('../models/event.model');
 const User = require("../models/user.model");
+const Ticket = require("../models/ticket.model")
 const mongoose = require('mongoose');
 const { sessions } = require('../middlewares/auth.middleware')
 
@@ -84,3 +85,19 @@ module.exports.doEdit = (req, res, next) => {
       }
     })
 }
+
+//User
+
+module.exports.details = (req, res, next) => {
+  Event
+  .findById(req.params.idEvent)
+  .then((event) => {
+      return Ticket
+          .find({ idEvent: event._id})
+          .then((tickets) => {
+              console.log(tickets)
+              res.render('events/details', { event, tickets })
+          })
+  })
+  .catch(error => next(error));
+}  

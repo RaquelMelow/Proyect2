@@ -1,0 +1,19 @@
+ <h1>{{event.name}}</h1>
+    
+    <p>Details</p>
+    <p>{{event.info}}</p>
+    
+{{#if tickets}}
+        <form id="order" action="/events/{{event._id}}/orders" method="POST">
+            <select class="form-select" aria-label="Select ticket" name="idTicket">
+                <option value="" disabled selected>Choose your type of ticket</option>
+                {{#each tickets}}
+                    <option value="{{this._id}}">{{this.ticketType}}</option>
+                {{/each}}
+            </select>
+            <input type="number" name="quantity" min="1" required/>
+            <button type="submit">Buy Tickets</button>
+        </form>
+{{else}}
+  <p>No tickets are currently available for this event.</p>
+{{/if}}

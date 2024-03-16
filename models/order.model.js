@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
@@ -7,27 +8,31 @@ const orderSchema = new Schema({
             ticket: {
                 type: mongoose.Schema.Types.ObjectId,
                 required: true,
-                ref: "ticket" 
+                ref: "Ticket"
             },
             quantity: Number,
-            unitPrice: Number,
-            subtotal: Number
+
         }]
     },
     total: {
-        type:Number,
+        type: Number,
 
     },
-    idUser: {
+    owner: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: "user"
-       }
+        ref: "User"
     },
+    idEvent: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: "Event"
+    },
+},
     {
         timestamps: true
     });
 
-const Order = mongoose.model("order", orderSchema);
+const Order = mongoose.model("Order", orderSchema);
 
 module.exports = Order;
