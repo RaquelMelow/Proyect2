@@ -1,5 +1,5 @@
 <nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
+  <div class="container-fluid" style="10px;">
     <h1>Events</h1>
     <a class="btn btn-warning" href="/events/create">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-plus-fill" viewBox="0 0 16 16">
@@ -11,9 +11,9 @@
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 my-5">
   {{#each events as |event|}}
-    <div class="card" style="width: 18rem;">
+    <div class="card event-list">
       <div class="card-body">  <h5 class="card-title">{{name}}</h5>
-        <p class="card-text">{{date}}.</p>
+        <p class="card-text">{{formatDate date}}</p>
         <div class="btn-wrapper text-center d-flex justify-content-between">
           <a href="/events/{{event._id}}/edit" method="get">
             <button type="submit" class="btn btn-primary me-md-2 ">Edit</button>

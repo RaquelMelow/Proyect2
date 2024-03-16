@@ -6,6 +6,7 @@ const misc = require('../controllers/misc.controller');
 const events = require('../controllers/events.controller');
 const ticket = require('../controllers/ticket.controller');
 const info = require('../controllers/info.controller');
+const order = require('../controllers/order.controller');
 
 const secure = require('../middlewares/auth.middleware');
 const multer = require('./multer.config')
@@ -35,6 +36,9 @@ router.post('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, mul
 // Tickets CRUD - only ADMIN
 router.get('/ticket/:idEvent/create', secure.isAuthenticated, secure.isAdmin, ticket.create);
 router.post('/ticket/:idEvent/create', secure.isAuthenticated, secure.isAdmin, ticket.doCreate);
+
+// Order
+router.get('/order/:idEvent/create', order.create);
 
 
 

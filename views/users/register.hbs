@@ -1,60 +1,47 @@
-<div class="row justify-content-center mb-3">
-  <div class="col-12 col-md-4 text-center"></div>
-</div>
-<div class="row justify-content-center">
-  <div class="col-12 col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title fw-light">Welcome!</h5>
-            <form method="post"  action="/register">
-                <div class="form-group mb-1">
-                    <div class="row">
-                        <div class="col-md-8">
-                            Already user? Login <a href="/login">Here</a>
-                        </div>
-                    </div>
+<!--Main Container -->
+<div class="container d-flex justify-content-center align-items-center min-vh">
+  <!--Login Container -->
+  <div class="row border rounder-5 p-3 bg-white shadow box-area">
+      <!--Left Box -->
+      <div class="col-md-6 rounder-4 d-flex justify-content-center align-items-center flex-column left-box" style="background:#007BFF;">
+          <div class="featured-image mb-3">
+              <img src="/img/register.png" class="img-fluid" style="width: 300px">
+          </div>
+          <p class="text-white fs-2 text-center" style="font-family: 'Courier New', Courier, monospace; font-weight: 500;">Enjoy the best events!</p>
+          <small class="text-white text-center" style="width: 18rem; font-family: 'Courier New', Courier, monospace;">Great variety of shows for you.</small>
+      </div>
+      <!--Right Box -->
+      <div class="col-md-6 right-box">
+          <div class="row align-items-center">
+              <div class="header-text mb-4">
+                  <h2>Welcome!</h2>
+                  <p>It's a pleasure to have you with us.</p>
+              </div>
+              <form method="post" action="/register">
+                <div class="input-group mb-3">
+                  <input type="text" name="name" class="form-control form-control-lg bg-light fs-6 {{#if errors.name }}is-invalid{{/if}}" placeholder="Enter your full name"/>
+                  {{#if errors.name }} <div class="invalid-feedback">{{errors.name}}</div> {{/if}}
+                </div>  
+                <div class="input-group mb-3">
+                      <input type="text" name="email" class="form-control form-control-lg bg-light fs-6 {{#if errors.email }}is-invalid{{/if}}" placeholder="Enter your email"/>
+                      {{#if errors.email }} <div class="invalid-feedback">{{errors.email}}</div> {{/if}}
                 </div>
-                {{!--NAME--}}
-                <div class="form-group mb-1">
-                    <label for="name">Name<span class="text-danger">*</span></label>
-                    <input type="name" class="form-control{{#if errors.name }}is-invalid{{/if}}"  name="name" placeholder="Enter Your Name" value="{{user.name}}">
-                    {{#if errors.name }}<div class="invalid-feedback">{{errors.name}}</div>{{/if}}
+                <div class="input-group mb-3">
+                      <input type="phone" name="phone" class="form-control form-control-lg bg-light fs-6 {{#if errors.phone }}is-invalid{{/if}}" placeholder="Enter your mobile number"/>
+                      {{#if errors.phone }} <div class="invalid-feedback">{{errors.phone}}</div> {{/if}}
                 </div>
-               
-               {{!--EMAIL--}}
-                <div class="form-group mb-1">
-                    <label for="email">Email<span class="text-danger">*</span></label>
-                    <input type="email" class="form-control{{#if errors.email }}is-invalid{{/if}}" name="email" placeholder="Enter your email" value="{{user.email}}">
-                    {{#if errors.email }}<div class="invalid-feedback">{{errors.email}}</div>{{/if}}
+                <div class="input-group mb-3">
+                      <input type="password" name="password" class="form-control form-control-lg bg-light fs-6 {{#if errors.password }}is-invalid{{/if}}" placeholder="Enter your password"/>
+                      {{#if errors.password }} <div class="invalid-feedback">{{errors.password}}</div> {{/if}}
                 </div>
-                {{!--PHONE- Falta libreria de prefijos--}}
-                <div class="form-group mb-1">
-                    <label for="mobile">Mobile Number <span class="text-danger">*</span></label>
-                    <input type="phone" class="form-control{{#if errors.phone }}is-invalid{{/if}}" name="phone" placeholder="Enter your Mobile Number" value="{{user.phone}}">
-                    {{#if errors.phone }}<div class="invalid-feedback">{{errors.phone}}</div>{{/if}}
+                <div class="input-group mb-3">
+                      <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Register</button>
                 </div>
-                {{!--PASSWORD--}}
-                <div class="form-group mb-1">
-                    <label for="password">Password <span class="text-danger">*</span></label>
-                    <input type="password" class="form-control{{#if errors.password }}is-invalid{{/if}}" name="password" placeholder="Enter Your Password"value="{{user.password}}">
-                    {{#if errors.password }}<div class="invalid-feedback">{{errors.password}}</div>{{/if}}
-                </div>
-                {{!--CONFIRM PASSWORD
-                <div class="form-group mb-1">
-                    <label for="password">Confirm Password <span class="text-danger">*</span></label>
-                    <input type="cpassword" class="form-control" name="cpassword" id="cpassword" placeholder="Enter Same as Password" value="{{cpassword}}">
-                </div>--}}
-
-                <div class="form-group">
-                    <p><span class="text-danger">*</span>These fields are required</p>
-                </div>
-
-                <div class="d-grid gap-2 mt-2">
-                   <button type="submit" class="btn btn-primary">Register</button>
-                </div>
-                
-            </form>
-        </div>
-    </div>
+              </form>
+              <div class="row">
+                  <small>Do you already have an account?<a href="/login">Login</a></small>
+              </div>
+          </div>
+      </div>
   </div>
-</div>           
+</div>

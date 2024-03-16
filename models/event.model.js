@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const eventTypeEnum = ['Music', 'Festival', 'Theatre', 'Sports'];
+const eventTypeEnum = ['Music', 'Festivals', 'Theatre', 'Sports'];
 
 
 const eventSchema = new Schema({

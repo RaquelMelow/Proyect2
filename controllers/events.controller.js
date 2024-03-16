@@ -21,16 +21,15 @@ module.exports.list = (req, res, next) => {
 module.exports.create = (req, res, next) => res.render('admin/create-event');
 
 module.exports.doCreate = (req, res, next) => {
-  console.log('áqui estoy')
     const event = req.body;
 
     if (req.file) {
       event.photo = req.file.path
     }
-
+    console.log(event)
     Event
       .create(event)
-      .then((event) => res.redirect('/events'))
+      .then(() => res.redirect('/events'))
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
             res.status(400).render('admin/create-event', { event, errors: error.errors });
@@ -56,7 +55,7 @@ module.exports.edit = (req, res, next) => {
             error.status = 404;
             next(error);
       } else {
-        res.render('admin/edit', { event })
+        res.render('admin/edit', { event, id })
       }
     })
     .catch(next);
@@ -79,7 +78,7 @@ module.exports.doEdit = (req, res, next) => {
     })
     .catch((error) => {
       if (error instanceof mongoose.Error.ValidationError) {
-        res.status(400).render('admin/edit', { event: req.body, errors: error.errors})
+        res.status(400).render('admin/edit', { event: req.body, id: req.params.idEvent, errors: error.errors})
       } else {
         next(error);
       }

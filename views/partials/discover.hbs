@@ -2,23 +2,21 @@
   <div class='d-flex flex-g-4 justify-content-between'>
   <!-- Music Events -->
   <section class="col">
-    <h2>Music Events</h2>
+    <h2 class="text-center">Music Events</h2>
     <div class="d-flex flex-wrap">
       {{#each events as |event|}}
         {{#isEqual event.eventType "Music"}}
-          <div class="card-container" style="max-width: 500px; max-height: 600px; margin: 20px;">
-            <a href="/ticket/{{event._id/create}}">
-              <div class="card event-card">
+            <div class="card-container" style="max-width: 500px; max-height: 600px; margin: 20px;">
+              <a class="card event-card" href="/order/{{event._id}}/create">
                 <div class="card-inner">
                   <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
                 </div>
                 <div class="card-footer">
                   <h5 class="card-title">{{event.name}}</h5>
-                  <p class="card-text">{{event.eventType}}</p>
+                  <p class="card-text">{{formatDate date}}</p>
                 </div>
-              </div>
-            </a>
-          </div>
+              </a>
+            </div>
         {{/isEqual}}
       {{/each}}
     </div>
@@ -27,23 +25,22 @@
 
 <div class="row">
   <!-- Festivals Events -->
-  <section class="col">
-    <h2>Festivals Events</h2>
+  <section class="col text-center">
+    <h2 class="text-center">Festivals Events</h2>
     <div class="d-flex flex-wrap">
       {{#each events as |event|}}
         {{#isEqual event.eventType "Festivals"}}
           <div class="card-container" style="max-width: 500px; max-height: 600px; margin: 20px;">
-            <a href="/ticket/{{event._id/create}}">
-              <div class="card event-card">
-                <div class="card-inner">
-                  <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
-                </div>
-                <div class="card-footer">
-                  <h5 class="card-title">{{event.name}}</h5>
-                  <p class="card-text">{{event.eventType}}</p>
-                </div>
+            <div class="card event-card">
+              <div class="card-inner">
+                <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
               </div>
-            </a>
+              <div class="card-footer">
+                <h5 class="card-title">{{event.name}}</h5>
+                <p class="card-text">{{formatDate date}}</p>
+
+              </div>
+            </div>
           </div>
         {{/isEqual}}
       {{/each}}
@@ -53,49 +50,51 @@
 
 <div class="row">
   <!-- Theatre Events -->
-  <section class="col">
-    <h2>Theatre Events</h2>
+  <section class="col text-center">
+    <h2 class="text-center">Theatre Events</h2>
+    <div class="d-flex flex-wrap">
     {{#each events as |event|}}
       {{#isEqual event.eventType "Theatre"}}
         <div class="card-container" style="max-width: 500px; max-height: 600px; margin: 20px;">
-          <a href="/ticket/{{event._id/create}}">
-            <div class="card event-card">
-              <div class="card-inner">
-                <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
-              </div>
-              <div class="card-footer">
-                <h5 class="card-title">{{event.name}}</h5>
-                <p class="card-text">{{event.eventType}}</p>
-              </div>
+          <div class="card event-card">
+            <div class="card-inner">
+              <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
             </div>
-          </a>
+            <div class="card-footer">
+              <h5 class="card-title">{{event.name}}</h5>
+              <p class="card-text">{{formatDate date}}</p>
+
+            </div>
+          </div>
         </div>
       {{/isEqual}}
     {{/each}}
+    </div>
   </section>
 </div>
 
 <div class="row">
   <!-- Sports Events -->
-  <section class="col">
-    <h2>Sports Events</h2>
+  <section class="col text-center">
+    <h2 class="text-center">Sports Events</h2>
+    <div class="d-flex flex-wrap">
     {{#each events as |event|}}
       {{#isEqual event.eventType "Sports"}}
-        <a href="/ticket/{{event._id/create}}">
-          <div class="card-container" style="max-width: 500px; max-height: 600px; margin: 20px;">
-            <div class="card event-card">
-              <div class="card-inner">
-                <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
-              </div>
-              <div class="card-footer">
-                <h5 class="card-title">{{event.name}}</h5>
-                <p class="card-text">{{event.eventType}}</p>
-              </div>
+        <div class="card-container" style="max-width: 500px; max-height: 600px; margin: 20px;">
+          <div class="card event-card">
+            <div class="card-inner">
+              <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
             </div>
-          </a>
+            <div class="card-footer">
+              <h5 class="card-title">{{event.name}}</h5>
+              <p class="card-text">{{formatDate date}}</p>
+
+            </div>
+          </div>
         </div>
       {{/isEqual}}
     {{/each}}
+    </div>
   </section>
   </div>
 </div>
