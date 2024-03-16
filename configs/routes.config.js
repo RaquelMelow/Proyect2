@@ -38,7 +38,6 @@ router.post('/ticket/:idEvent/create', secure.isAuthenticated, secure.isAdmin, t
 
 
 
-
 // Info- footer
 router.get('/about-us', info.aboutUs);
 router.get('/help', info.help);

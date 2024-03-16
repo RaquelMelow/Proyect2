@@ -7,15 +7,17 @@
       {{#each events as |event|}}
         {{#isEqual event.eventType "Music"}}
           <div class="card-container" style="max-width: 500px; max-height: 600px; margin: 20px;">
-            <div class="card event-card">
-              <div class="card-inner">
-                <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
+            <a href="/ticket/{{event._id/create}}">
+              <div class="card event-card">
+                <div class="card-inner">
+                  <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
+                </div>
+                <div class="card-footer">
+                  <h5 class="card-title">{{event.name}}</h5>
+                  <p class="card-text">{{event.eventType}}</p>
+                </div>
               </div>
-              <div class="card-footer">
-                <h5 class="card-title">{{event.name}}</h5>
-                <p class="card-text">{{event.eventType}}</p>
-              </div>
-            </div>
+            </a>
           </div>
         {{/isEqual}}
       {{/each}}
@@ -31,15 +33,17 @@
       {{#each events as |event|}}
         {{#isEqual event.eventType "Festivals"}}
           <div class="card-container" style="max-width: 500px; max-height: 600px; margin: 20px;">
-            <div class="card event-card">
-              <div class="card-inner">
-                <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
+            <a href="/ticket/{{event._id/create}}">
+              <div class="card event-card">
+                <div class="card-inner">
+                  <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
+                </div>
+                <div class="card-footer">
+                  <h5 class="card-title">{{event.name}}</h5>
+                  <p class="card-text">{{event.eventType}}</p>
+                </div>
               </div>
-              <div class="card-footer">
-                <h5 class="card-title">{{event.name}}</h5>
-                <p class="card-text">{{event.eventType}}</p>
-              </div>
-            </div>
+            </a>
           </div>
         {{/isEqual}}
       {{/each}}
@@ -54,15 +58,17 @@
     {{#each events as |event|}}
       {{#isEqual event.eventType "Theatre"}}
         <div class="card-container" style="max-width: 500px; max-height: 600px; margin: 20px;">
-          <div class="card event-card">
-            <div class="card-inner">
-              <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
+          <a href="/ticket/{{event._id/create}}">
+            <div class="card event-card">
+              <div class="card-inner">
+                <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
+              </div>
+              <div class="card-footer">
+                <h5 class="card-title">{{event.name}}</h5>
+                <p class="card-text">{{event.eventType}}</p>
+              </div>
             </div>
-            <div class="card-footer">
-              <h5 class="card-title">{{event.name}}</h5>
-              <p class="card-text">{{event.eventType}}</p>
-            </div>
-          </div>
+          </a>
         </div>
       {{/isEqual}}
     {{/each}}
@@ -75,16 +81,18 @@
     <h2>Sports Events</h2>
     {{#each events as |event|}}
       {{#isEqual event.eventType "Sports"}}
-        <div class="card-container" style="max-width: 500px; max-height: 600px; margin: 20px;">
-          <div class="card event-card">
-            <div class="card-inner">
-              <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
+        <a href="/ticket/{{event._id/create}}">
+          <div class="card-container" style="max-width: 500px; max-height: 600px; margin: 20px;">
+            <div class="card event-card">
+              <div class="card-inner">
+                <img class="image" src="{{event.photo}}" alt="{{event.name}} photo">
+              </div>
+              <div class="card-footer">
+                <h5 class="card-title">{{event.name}}</h5>
+                <p class="card-text">{{event.eventType}}</p>
+              </div>
             </div>
-            <div class="card-footer">
-              <h5 class="card-title">{{event.name}}</h5>
-              <p class="card-text">{{event.eventType}}</p>
-            </div>
-          </div>
+          </a>
         </div>
       {{/isEqual}}
     {{/each}}
