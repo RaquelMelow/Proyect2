@@ -38,8 +38,9 @@ router.post('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, mul
 router.get('/ticket/:idEvent/create', secure.isAuthenticated, secure.isAdmin, ticket.create);
 router.post('/ticket/:idEvent/create', secure.isAuthenticated, secure.isAdmin, ticket.doCreate);
 
-//Events - User
+//Events - User / with next route order-user
 router.get('/events/:idEvent/details', events.details);
+
 // Order - User
 router.post('/events/:idEvent/orders', secure.isAuthenticated, order.doCreate);
 

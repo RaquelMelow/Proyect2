@@ -1,19 +1,41 @@
- <h1>{{event.name}}</h1>
-    
-    <p>Details</p>
-    <p>{{event.info}}</p>
-    
-{{#if tickets}}
-        <form id="order" action="/events/{{event._id}}/orders" method="POST">
-            <select class="form-select" aria-label="Select ticket" name="idTicket">
-                <option value="" disabled selected>Choose your type of ticket</option>
-                {{#each tickets}}
-                    <option value="{{this._id}}">{{this.ticketType}}</option>
-                {{/each}}
+<div
+  class="container d-flex h-75 justify-content-center align-items-center min-vh"
+>
+  <div class="row border rounded-5 p-3 bg-white shadow box-area">
+    <!-- Left Box -->
+    <div
+      class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
+      style="background: #007BFF url('/img/ticket.jpg') center/cover;"
+    >
+    </div>
+    <!-- Right Box -->
+    <div class="col-md-6 right-box">
+      <div class="row align-items-center">
+        <h1>{{event.name}}</h1>
+        <p>Details</p>
+        <p>{{event.info}}</p>
+
+        {{#if tickets}}
+          <form id="order" action="/events/{{event._id}}/orders" method="POST">
+            <select
+              class="form-select"
+              aria-label="Select ticket"
+              name="idTicket"
+            >
+              <option value="" disabled selected>Choose your type of ticket</option>
+              {{#each tickets}}
+                <option value="{{this._id}}">{{this.ticketType}}
+                  <p>- Unit price:</p>{{this.price}}<p> €</p></option>
+              {{/each}}
             </select>
-            <input type="number" name="quantity" min="1" required/>
+
+            <input type="number" name="quantity" min="1" required />
             <button type="submit">Buy Tickets</button>
-        </form>
-{{else}}
-  <p>No tickets are currently available for this event.</p>
-{{/if}}
+          </form>
+        {{else}}
+          <p>No tickets are currently available for this event.</p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
