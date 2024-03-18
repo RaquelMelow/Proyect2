@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>My tickets</h2>
+    {{#each orders}}
+        <div class="order">
+            <h2>Order ID: {{this._id}}</h2>
+            <p>Total: ${{this.total}}</p>
+            <p>Event: {{this.idEvent.name}}</p>
+            <ul>
+                {{#each this.tickets}}
+                    <li>Ticket ID: {{this.ticket._id}}, Quantity: {{this.quantity}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    {{/each}}
+</div>

@@ -27,11 +27,25 @@ module.exports.doCreate = (req, res, next) => {
             };
 
             return Order.create(order).then((order) =>
-              res.redirect(`/pay/detail`)
+              res.redirect(`/order/orders`)
             );
-          }
+        }
         });
       }
     })
     .catch((error) => next(error));
 };
+
+module.exports.list = (req, res, next) => {
+  const { owner } = req.params;
+  Order
+  .find(owner)
+  .populate('idEvent')
+  .populate('tickets.ticket')
+  .then(orders => {
+    res.render('order/list', { orders });
+  })
+  .catch(error => {
+    next(error);
+  });
+}

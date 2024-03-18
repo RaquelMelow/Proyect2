@@ -30,7 +30,7 @@
         {{#if currentUser.isAdmin}}
           <li><a class="dropdown-item" href="/events">Create Event</a></li>
         {{/if}}
-        <li><a class="dropdown-item" href="#">Tickets</a></li>
+        <li><a class="dropdown-item" href="/order/{{currentUser._id}}/list">My Tickets</a></li>
         <li><hr class="dropdown-divider" /></li>
         <li><a class="dropdown-item" href="/logout">Logout</a></li>
       </ul>

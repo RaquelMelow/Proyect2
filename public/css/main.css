@@ -122,6 +122,8 @@ footer {
   border: none;
   max-width: 400px;
   max-height: 400px;
+  text-decoration: none;
+  font-size: 14px;
 }
 
 .event-card .card-inner {
@@ -160,6 +162,7 @@ footer {
     transform: translateY(5px);
   }
 }
+
 
 /* ------------------------CARDS EVENT ADMIN------------------------ */
 

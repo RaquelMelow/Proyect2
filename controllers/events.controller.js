@@ -103,3 +103,5 @@ module.exports.details = (req, res, next) => {
     })
     .catch((error) => next(error));
 };
+
+
