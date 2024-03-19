@@ -9,6 +9,10 @@
   text-shadow: none;
 }
 
+.navbar {
+  height: 65px; 
+}
+
 body {
   font-family: Arial;
 }
@@ -185,5 +189,7 @@ footer {
 .event-list .btn-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Para distribuir los botones de manera uniforme */
+  justify-content: space-between; 
 }
+
+/* ------------------------CARDS EVENT TYPE------------------------ */

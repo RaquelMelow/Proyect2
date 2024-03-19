@@ -134,3 +134,13 @@ module.exports.filter = (req, res, next) => {
       })
       .catch(error => next(error));
 };
+
+module.exports.type = (req, res, next) => {
+  const { eventType } = req.params;
+  const eventTypeEnum = ['music', 'festivals', 'theatre', 'sports'];
+
+  Event.find({ eventType: eventType })
+    .sort({ date: -1 })
+    .then((events) => res.render('events/type', { events, eventTypeEnum })) 
+    .catch((error) => next(error));
+};

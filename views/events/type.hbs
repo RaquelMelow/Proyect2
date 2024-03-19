@@ -1,0 +1,17 @@
+<section class="event-type">
+  <div class="container">
+    <div class="row">
+      {{#each events}}
+      <div class="col">
+        <div class="card">
+          <img src="{{this.photo}}" class="card-img-top" alt="Event Image">
+          <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">{{this.location}} - {{formatDate this.date}}</p>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
