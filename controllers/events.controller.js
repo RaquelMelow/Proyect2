@@ -6,13 +6,7 @@ const mongoose = require("mongoose");
 const { sessions } = require("../middlewares/auth.middleware");
 
 module.exports.list = (req, res, next) => {
-  const { name, eventType, date } = req.query;
-  const eventFilter = {};
-  if (name) filter.name = new RegExp(name, "i");
-  if (eventType) filter.eventType = eventType;
-  if (date) filter.date = { $gte: new Date(date) };
-
-  Event.find(eventFilter)
+  Event.find()
     .sort({ date: 1 })
     .then((events) => res.render("admin/list", { events }))
     .catch((error) => next(error));
@@ -26,7 +20,6 @@ module.exports.doCreate = (req, res, next) => {
   if (req.file) {
     event.photo = req.file.path;
   }
-  console.log(event);
   Event.create(event)
     .then(() => res.redirect("/events"))
     .catch((error) => {
@@ -105,3 +98,39 @@ module.exports.details = (req, res, next) => {
 };
 
 
+/*module.exports.filter = (req, res, next) => {
+  const { search } = req.query;
+
+  const criterial = {};
+
+  criterial.name = new RegExp(search, 'i');
+
+  
+
+  Event.find(criterial)
+    .sort({ date: 1 })
+    .then((events) => res.render('events/list', { events, search }))
+    .catch((error) => next(error));
+  
+}*/
+
+module.exports.filter = (req, res, next) => {
+  const { eventType } = req.query;
+  const eventTypeEnum = ['music', 'festivals', 'theatre', 'sports'];
+
+  let criteria = {};
+
+  if (!eventType || !eventTypeEnum.includes(eventType.toLowerCase())) {
+      return res.status(400).send('Invalid event type. Please write: Music, Festivals, Theatre, Sports.');
+  }
+  
+  if (eventType && eventType.toLowerCase() !== 'all') {
+    criteria.eventType = eventType;
+  }
+
+  Event.find(criteria)
+      .then(events => {
+          res.render('events/list', { events });
+      })
+      .catch(error => next(error));
+};

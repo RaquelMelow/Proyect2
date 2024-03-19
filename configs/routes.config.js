@@ -7,6 +7,7 @@ const events = require('../controllers/events.controller');
 const ticket = require('../controllers/ticket.controller');
 const info = require('../controllers/info.controller');
 const order = require('../controllers/order.controller');
+const pay = require('../controllers/pay.controller');
 
 const secure = require('../middlewares/auth.middleware');
 const multer = require('./multer.config')
@@ -32,6 +33,7 @@ router.post('/events/create', secure.isAuthenticated, secure.isAdmin, multer.sin
 router.post('/events/:idEvent/delete', secure.isAuthenticated, secure.isAdmin, events.delete);
 router.get('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, events.edit);
 router.post('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, multer.single('photo'), events.doEdit);
+router.get('/events/filter', events.filter)
 
 
 // Tickets CRUD - only ADMIN -Cambiar ruta
@@ -44,6 +46,12 @@ router.get('/events/:idEvent/details', events.details);
 // Order - User
 router.post('/events/:idEvent/orders', secure.isAuthenticated, order.doCreate);
 router.get('/order/:idUser/list', secure.isAuthenticated, order.list);
+
+//Pay
+router.get('/pay/:idUser', secure.isAuthenticated, pay.list);
+router.get('/pay/:idUser/create', secure.isAuthenticated, pay.create);
+router.post('/pay/:idUser/create', secure.isAuthenticated, pay.doCreate);
+
 
 
 // Info- footer

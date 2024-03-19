@@ -20,7 +20,6 @@ module.exports.doCreate = (req, res, next) => {
     .then(() => res.redirect(`/events/${req.params.idEvent}/edit`))
     .catch((error) => {
       if (error instanceof mongoose.Error.ValidationError) {
-        console.log(error.errors);
         res.status(400).render("ticket/create-ticket", {
           ticket,
           errors: error.errors,

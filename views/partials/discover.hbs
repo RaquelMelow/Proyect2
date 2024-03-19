@@ -4,7 +4,7 @@
     <section class="col">
       <h2 class="text-center" style="margin-top: 30px; front-size: 23px; text-align: center; font-weight: 900; padding-bottom: 4px; text-transform: uppercase;">Music Events</h2>
       <div class="d-flex flex-wrap">
-        {{#each events as |event|}}
+        {{#each musicEvents as |event|}}
           {{#isEqual event.eventType "Music"}}
             <div
               class="card-container"
@@ -35,7 +35,7 @@
     <section class="col text-center">
       <h2 class="text-center" style="front-size: 23px; text-align: center; font-weight: 900; padding-bottom: 4px; text-transform: uppercase;">Festivals Events</h2>
       <div class="d-flex flex-wrap">
-        {{#each events as |event|}}
+        {{#each festivalsEvents as |event|}}
           {{#isEqual event.eventType "Festivals"}}
             <div
               class="card-container"
@@ -66,7 +66,7 @@
     <section class="col text-center">
       <h2 class="text-center" style="front-size: 23px; text-align: center; font-weight: 900; padding-bottom: 4px; text-transform: uppercase;">Theatre Events</h2>
       <div class="d-flex flex-wrap">
-        {{#each events as |event|}}
+        {{#each theatreEvents as |event|}}
           {{#isEqual event.eventType "Theatre"}}
             <div
               class="card-container"
@@ -97,7 +97,7 @@
     <section class="col text-center">
       <h2 class="text-center" style="front-size: 23px; text-align: center; font-weight: 900; padding-bottom: 4px; text-transform: uppercase;">Sports Events</h2>
       <div class="d-flex flex-wrap">
-        {{#each events as |event|}}
+        {{#each sportsEvents as |event|}}
           {{#isEqual event.eventType "Sports"}}
             <div
               class="card-container"

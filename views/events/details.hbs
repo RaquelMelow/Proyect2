@@ -26,10 +26,12 @@
               {{#each tickets}}
                 <option value="{{this._id}}">{{this.ticketType}}
                   <p>- Unit price:</p>{{this.price}}<p> €</p></option>
+                
               {{/each}}
             </select>
-
+            <!--Añadir metodo de pago nuevo si no tiene el usuario y mostrar metodos de pago que si tiene con un if-->
             <input type="number" name="quantity" min="1" required />
+            <span>{{this.total}}</span>
             <button type="submit">Buy Tickets</button>
           </form>
         {{else}}

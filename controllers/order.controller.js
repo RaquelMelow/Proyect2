@@ -27,7 +27,7 @@ module.exports.doCreate = (req, res, next) => {
             };
 
             return Order.create(order).then((order) =>
-              res.redirect(`/order/orders`)
+              res.redirect(`/order/detail`)
             );
         }
         });
