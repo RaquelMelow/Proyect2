@@ -28,10 +28,20 @@
                   <p>- Unit price:</p>{{this.price}}<p> €</p></option>
                 
               {{/each}}
-            </select>
-            <!--Añadir metodo de pago nuevo si no tiene el usuario y mostrar metodos de pago que si tiene con un if-->
+
             <input type="number" name="quantity" min="1" required />
-            <span>{{this.total}}</span>
+
+            
+            <select
+              class="form-select"
+              aria-label="Select your methods payment"
+              name="idPay"
+            >
+              <option value="" disabled selected>Choose your method payment</option>  
+              {{#each payments}}
+               <option value="{{this._id}}">{{this.cardHolder}}
+              {{/each}}
+            </select>
             <button type="submit">Buy Tickets</button>
           </form>
         {{else}}

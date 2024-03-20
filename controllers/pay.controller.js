@@ -13,8 +13,8 @@ module.exports.create = (req, res, next) => {
 }
 
 module.exports.doCreate = (req, res, next) => {
-    const { cardHolder, cardNumber, cvc, expirationDate } = req.body;
-    const payment = { cardHolder, cardNumber, cvc, expirationDate, idUser: req.user.id };
+    const { cardHolder, cardNumber, cvv, expirationDate } = req.body;
+    const payment = { cardHolder, cardNumber, cvv, expirationDate, idUser: req.user.id };
 
     Pay
         .create(payment)
@@ -26,4 +26,13 @@ module.exports.doCreate = (req, res, next) => {
                 next(error);
             }
         });
+}
+
+
+module.exports.doDelete = (req, res, next) => {
+
+    Pay 
+       .findByIdAndDelete(req.params.idPay)
+       .then(() => res.redirect('/profile'))
+       .catch(error => next(error))
 }

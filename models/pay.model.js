@@ -13,11 +13,11 @@ const paySchema = new Schema({
     trim: true,
     match: [/^\d{16}$/, "Invalid card number, must be a 16-digit number"],
   },
-  cvc: {
+  cvv: {
     type: String,
-    required: [true, "CVC is required"],
+    required: [true, "CVV is required"],
     trim: true,
-    match: [/^[0-9]{3}$/, "CVC needs at least 3 characters"],
+    match: [/^[0-9]{3}$/, "CVV needs at least 3 characters"],
   },
   expirationDate: {
     type: String,

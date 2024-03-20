@@ -18,11 +18,11 @@
                         {{#if errors.cardNumber}}<div class="invalid-feedback">{{errors.cardNumber}}</div>{{/if}}
                     </div>
 
-                    <!-- CVC-->
+                    <!-- cvv-->
                     <div class="form-group mb-1">
-                        <label for="cvc">CVV<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control{{#if errors.cvc}} is-invalid{{/if}}" id="cvc" name="cvc" pattern="[0-9]{3}" title="Must be a 3-digit number" placeholder="CVC" value="{{event.cvc}}">
-                        {{#if errors.cvc}}<div class="invalid-feedback">{{errors.cvc}}</div>{{/if}}
+                        <label for="cvv">CVV<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control{{#if errors.cvv}} is-invalid{{/if}}" id="cvv" name="cvv" pattern="[0-9]{3}" title="Must be a 3-digit number" placeholder="cvv" value="{{event.cvv}}">
+                        {{#if errors.cvv}}<div class="invalid-feedback">{{errors.cvv}}</div>{{/if}}
                     </div>
 
                     <!-- EXPIRATIONDATE -->

@@ -2,6 +2,7 @@ const createError = require("http-errors");
 const Event = require("../models/event.model");
 const User = require("../models/user.model");
 const Ticket = require("../models/ticket.model");
+const Pay = require("../models/pay.model");
 const mongoose = require("mongoose");
 const { sessions } = require("../middlewares/auth.middleware");
 
@@ -84,63 +85,24 @@ module.exports.doEdit = (req, res, next) => {
     });
 };
 
-//User
 
 module.exports.details = (req, res, next) => {
-  Event.findById(req.params.idEvent)
-    .then((event) => {
+  Event.findById(req.params.idEvent).then((event) => {
       return Ticket.find({ idEvent: event._id }).then((tickets) => {
-        console.log(tickets);
-        res.render("events/details", { event, tickets });
-      });
+        return Pay.find({ idUser: req.user.id }).then((payments) => {
+          res.render("events/details", { event, tickets, payments });
+        })
+      })
     })
     .catch((error) => next(error));
 };
 
 
-/*module.exports.filter = (req, res, next) => {
-  const { search } = req.query;
-
-  const criterial = {};
-
-  criterial.name = new RegExp(search, 'i');
-
-  
-
-  Event.find(criterial)
-    .sort({ date: 1 })
-    .then((events) => res.render('events/list', { events, search }))
-    .catch((error) => next(error));
-  
-}*/
-
-module.exports.filter = (req, res, next) => {
-  const { eventType } = req.query;
-  const eventTypeEnum = ['music', 'festivals', 'theatre', 'sports'];
-
-  let criteria = {};
-
-  if (!eventType || !eventTypeEnum.includes(eventType.toLowerCase())) {
-      return res.status(400).send('Invalid event type. Please write: Music, Festivals, Theatre, Sports.');
-  }
-  
-  if (eventType && eventType.toLowerCase() !== 'all') {
-    criteria.eventType = eventType;
-  }
-
-  Event.find(criteria)
-      .then(events => {
-          res.render('events/list', { events });
-      })
-      .catch(error => next(error));
-};
-
 module.exports.type = (req, res, next) => {
   const { eventType } = req.params;
-  const eventTypeEnum = ['music', 'festivals', 'theatre', 'sports'];
 
   Event.find({ eventType: eventType })
     .sort({ date: -1 })
-    .then((events) => res.render('events/type', { events, eventTypeEnum })) 
+    .then((events) => res.render('events/type', { events })) 
     .catch((error) => next(error));
 };
