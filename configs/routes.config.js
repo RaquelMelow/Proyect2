@@ -46,6 +46,7 @@ router.get('/events/:idEvent/details', events.details);
 // Order - User
 router.post('/events/:idEvent/orders', secure.isAuthenticated, order.doCreate);
 router.get('/order/:idUser/list', secure.isAuthenticated, order.list);
+router.get('/order/:idOrder/confirmed', secure.isAuthenticated, order.confirmed);
 
 //Pay
 router.get('/pay/:idUser', secure.isAuthenticated, pay.list);

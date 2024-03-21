@@ -207,6 +207,7 @@ footer {
   position: relative;
   z-index: 3;
   color: #ffffff;
+  --bs-body-color-rgb:#ffffff;
   opacity: 0;
   transform: translateY(100%);
   transition: opacity 0.5s, transform 0.5s, background-color 0.5s; 

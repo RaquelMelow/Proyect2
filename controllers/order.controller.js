@@ -27,7 +27,7 @@ module.exports.doCreate = (req, res, next) => {
             };
 
             return Order.create(order).then((order) =>
-              res.redirect(`/order/${req.user.id}/list`)
+              res.redirect(`/order/${order._id}/confirmed`)
             );
         }
         });
@@ -52,5 +52,14 @@ module.exports.list = (req, res, next) => {
 
 module.exports.confirmed = (req, res, next) => {
   Order
+       .findOne({_id: req.params.idOrder })
+       .then(order => {
+        if(order) {
+          res.render('order/confirmed', { msg: 'Congratulations! Your order is completed, enjoy your experience.', success: true, order})
+        } else {
+          res.render('order/confirmed', { msg: 'An error ocurred while purchasing your ticket. Try again!', success: false})
+        }
+       })
+
   
 }
