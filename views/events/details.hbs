@@ -37,9 +37,9 @@
               aria-label="Select your methods payment"
               name="idPay"
             >
-              <option value="" disabled selected>Choose your method payment</option>  
+              <option value="" disabled selected>Choose your credit card</option>  
               {{#each payments}}
-               <option value="{{this._id}}">{{this.cardHolder}}
+               <option value="{{this._id}}">{{creditCard this.cardNumber}}
               {{/each}}
             </select>
             <button type="submit">Buy Tickets</button>

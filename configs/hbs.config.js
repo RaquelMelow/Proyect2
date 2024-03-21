@@ -20,3 +20,9 @@ hbs.registerHelper("isEqual", function (value1, value2, options) {
     return options.inverse(this);
   }
 });
+
+hbs.registerHelper("creditCard", function (creditCard) {
+  const card = creditCard.slice(-4)
+  const fillCard = '*'.repeat(creditCard.length - 4)
+  return `${fillCard}${card}`
+})

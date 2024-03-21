@@ -14,3 +14,4 @@ module.exports.home = (req, res, next) => {
       )})
       .catch(error => next(error))
 }
+

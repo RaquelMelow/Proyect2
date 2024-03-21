@@ -205,13 +205,16 @@ footer {
 
 .card-info {
   position: relative;
+  width: 300px;
   z-index: 3;
-  color: #ffffff;
-  --bs-body-color-rgb:#ffffff;
+  color: #fff;
+  --bs-body-color-rgb:#fff;
   opacity: 0;
-  transform: translateY(100%);
   transition: opacity 0.5s, transform 0.5s, background-color 0.5s; 
-  background-color: rgba(57, 59, 59, 0.568); 
+  background-color: rgba(57, 59, 59, 0.568);
+  overflow: hidden;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .text-title {
@@ -236,6 +239,9 @@ footer {
   color: white;
   font-weight: bold;
   transition: background 0.4s ease, color 0.4s ease;
+  padding: 8px 16px;
+  margin: 8px;
+  margin-bottom: 10px;
 }
 
 
@@ -243,7 +249,6 @@ footer {
 
 .card:hover .card-info {
   opacity: 1;
-  transform: translateY(100%);
 }
 
 .card-button:hover {

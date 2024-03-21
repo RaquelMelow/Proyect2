@@ -17,7 +17,7 @@
                     {{#each payments }}
                         <div class="list-group-item">
                             <h6 class="mb-0">{{this.cardHolder}}</h6>
-                            <p class="mb-0">{{this.cardNumber}}</p>
+                            <p class="mb-0">{{ creditCard this.cardNumber}}</p>
                             <p class="mb-0">{{this.expirationDate}}</p>
                             <div class="d-flex justify-content-end mt-2">
                                 <form action="/pay/{{this.idUser}}/{{this._id}}/delete" method="POST">

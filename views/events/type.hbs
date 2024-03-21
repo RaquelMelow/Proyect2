@@ -1,12 +1,14 @@
-<section>
-  <div class="container">
+
+ <div class="container mt-5">
     <div class="row">
       {{#each events}}
+  
       <div class="col">
          <div class="card event-type" style="background-image: url('{{this.photo}}'); background-size: cover; background-position: center;">
-          <div class="card-info">
+          <div class="card-info justify-content-center">
             <div class="text-title">{{this.name}}</div>
-            <span class="text-body" style="color:white;">{{this.location}} {{formatDate this.date}}</span>
+            <span class="text-body">{{this.location}} {{formatDate this.date}}</span>
+            <hr>
             <a class="card-button" href="/events/{{this._id}}/details">Tickets</a>
           </div>
         </div>
@@ -14,4 +16,3 @@
       {{/each}}
     </div>
   </div>
-</section>
