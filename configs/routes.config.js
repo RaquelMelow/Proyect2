@@ -33,7 +33,7 @@ router.post('/events/create', secure.isAuthenticated, secure.isAdmin, multer.sin
 router.post('/events/:idEvent/delete', secure.isAuthenticated, secure.isAdmin, events.delete);
 router.get('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, events.edit);
 router.post('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, multer.single('photo'), events.doEdit);
-router.get('/events/filter', events.filter)
+router.get('/events/type/:eventType', events.type);
 
 
 // Tickets CRUD - only ADMIN -Cambiar ruta
@@ -51,7 +51,7 @@ router.get('/order/:idUser/list', secure.isAuthenticated, order.list);
 router.get('/pay/:idUser', secure.isAuthenticated, pay.list);
 router.get('/pay/:idUser/create', secure.isAuthenticated, pay.create);
 router.post('/pay/:idUser/create', secure.isAuthenticated, pay.doCreate);
-
+router.post('/pay/:idUser/:idPay/delete', secure.isAuthenticated, pay.doDelete);
 
 
 // Info- footer
