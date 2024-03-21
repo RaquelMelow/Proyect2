@@ -49,3 +49,8 @@ module.exports.list = (req, res, next) => {
     next(error);
   });
 }
+
+module.exports.confirmed = (req, res, next) => {
+  Order
+  
+}

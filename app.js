@@ -1,5 +1,6 @@
 require("dotenv").config();
-
+const mongoose = require('mongoose')
+const createError = require('http-errors');
 const logger = require("morgan");
 const express = require("express");
 
@@ -28,9 +29,19 @@ app.use((req, res, next) => {
 const routes = require("./configs/routes.config");
 app.use("/", routes);
 
+app.use((req, res, next) => next(createError(404, 'Route not found')));
+
 app.use((err, req, res, next) => {
+  if(
+    err instanceof mongoose.Error.CastError && 
+    err.message.includes('_id')
+    ) {
+      err = createError(404, 'Resource not found');
+    } else if (!err.status) {
+      err = createError(500, err);
+    }
   console.error(err);
-  res.send(err);
+  res.status(err.status).render(`errors/${err.status}`);
 });
 
 const port = 3000;
