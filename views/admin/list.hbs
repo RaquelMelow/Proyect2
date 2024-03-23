@@ -18,31 +18,33 @@
   </div>
 </nav>
 
-<div class="container" style=" margin-bottom: 50px; ">
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 my-5">
-    {{#each events as |event|}}
-      <div class="card event-list">
-        <div class="card-body">
-          <div class="card-content mb-3" style="height: 100px;">
-            <h5 class="card-title">{{name}}</h5>
-            <p class="card-text">{{formatDate date}}</p>
+<div class="container-fluid" style=" margin-bottom: 50px; ">
+  <div class="d-flex flex-g-4 justify-content-between">
+    <div class="d-flex flex-wrap justify-content-center">
+      <div class="row col-6" style="margin-top: 50px;">
+        {{#each events as |event|}}
+          <div class="card event-list">
+            <div class="card-body">
+              <div class="card-content mb-3" style="height: 100px;">
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">{{formatDate date}}</p>
+              </div>
+              <div class="btn-wrapper text-center d-flex justify-content-between mb-2">
+                <a href="/events/{{event._id}}/edit" method="get">
+                  <button
+                    type="submit"
+                    class="btn btn-primary me-md-2"
+                  >Edit</button>
+                </a>
+                <form action="/events/{{event._id}}/delete" method="post">
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+              </div>
+            </div>
           </div>
-          <div
-            class="btn-wrapper text-center d-flex justify-content-between mb-2"
-          >
-            <a href="/events/{{event._id}}/edit" method="get">
-              <button
-                type="submit"
-                class="btn btn-primary me-md-2"
-              >Edit</button>
-            </a>
-            <form action="/events/{{event._id}}/delete" method="post">
-              <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-          </div>
-        </div>
+        {{/each}}
       </div>
-    {{/each}}
+    </div>
   </div>
 </div>
 

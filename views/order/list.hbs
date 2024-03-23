@@ -2,14 +2,21 @@
     <h2>My tickets</h2>
     {{#each orders}}
         <div class="order">
-            <h2>Order ID: {{this._id}}</h2>
-            <p>Total: ${{this.total}}</p>
-            <p>Event: {{this.idEvent.name}}</p>
-            <ul>
-                {{#each this.tickets}}
-                    <li>Ticket ID: {{this.ticket._id}}, Quantity: {{this.quantity}}</li>
-                {{/each}}
-            </ul>
+            <div class="order-content">
+                <div>
+                    <h1>{{this.idEvent.name}}</h1>
+                    <h5>Ticket ID: {{this._id}}</h5>
+                    <p>Total: {{this.total}}€</p>
+                    <ul>
+                        {{#each this.tickets}}
+                            <li> Quantity: {{this.quantity}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="event-image">
+                    <img src="{{this.idEvent.photo}}" alt="Imagen del evento" style="max-width: 200px; max-height: 200px;">
+                </div>
+            </div>
         </div>
     {{/each}}
 </div>

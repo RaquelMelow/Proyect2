@@ -1,9 +1,12 @@
 <div class="container-fluid">
   <div class="d-flex flex-g-4 justify-content-between">
     <!-- Music Events -->
-    <section class="col">
-      <h2 class="text-center" style="margin-top: 30px; front-size: 23px; text-align: center; font-weight: 900; padding-bottom: 4px; text-transform: uppercase;">Music Events</h2>
-      <div class="d-flex flex-wrap">
+    <section class="col text-center">
+      <h2
+        class="text-center"
+        style="margin-top: 30px; front-size: 23px; text-align: center; font-weight: 900; padding-bottom: 4px; text-transform: uppercase;"
+      >Music Events</h2>
+      <div class="d-flex flex-wrap justify-content-center">
         {{#each musicEvents as |event|}}
           {{#isEqual event.eventType "Music"}}
             <div
@@ -18,9 +21,12 @@
                     alt="{{event.name}} photo"
                   />
                 </div>
-                <div class="card-footer">
+                <div class="card-footer" style="display: flex; flex-direction: column;">
                   <h5 class="card-title">{{event.name}}</h5>
-                  <p class="card-text">{{formatDate date}}</p>
+                  <div style="display: flex; justify-content: space-between;">
+                      <h6 class="card-text">{{event.location}}</h6>
+                      <p class="card-text">{{formatDate date}}</p>
+                  </div>
                 </div>
               </a>
             </div>
@@ -33,8 +39,11 @@
   <div class="row">
     <!-- Festivals Events -->
     <section class="col text-center">
-      <h2 class="text-center" style="front-size: 23px; text-align: center; font-weight: 900; padding-bottom: 4px; text-transform: uppercase;">Festivals Events</h2>
-      <div class="d-flex flex-wrap">
+      <h2
+        class="text-center"
+        style="front-size: 23px; text-align: center; font-weight: 900; padding-bottom: 4px; text-transform: uppercase;"
+      >Festivals Events</h2>
+      <div class="d-flex flex-wrap justify-content-center">
         {{#each festivalsEvents as |event|}}
           {{#isEqual event.eventType "Festivals"}}
             <div
@@ -49,10 +58,13 @@
                     alt="{{event.name}} photo"
                   />
                 </div>
-                <div class="card-footer">
+                <div class="card-footer" style="display: flex; flex-direction: column;">
                   <h5 class="card-title">{{event.name}}</h5>
-                  <p class="card-text">{{formatDate date}}</p>
-                </div>
+                  <div style="display: flex; justify-content: space-between;">
+                      <h6 class="card-text">{{event.location}}</h6>
+                      <p class="card-text">{{formatDate date}}</p>
+                  </div>
+              </div>
               </a>
             </div>
           {{/isEqual}}
@@ -64,8 +76,11 @@
   <div class="row">
     <!-- Theatre Events -->
     <section class="col text-center">
-      <h2 class="text-center" style="front-size: 23px; text-align: center; font-weight: 900; padding-bottom: 4px; text-transform: uppercase;">Theatre Events</h2>
-      <div class="d-flex flex-wrap">
+      <h2
+        class="text-center"
+        style="front-size: 23px; text-align: center; font-weight: 900; padding-bottom: 4px; text-transform: uppercase;"
+      >Theatre Events</h2>
+      <div class="d-flex flex-wrap justify-content-center">
         {{#each theatreEvents as |event|}}
           {{#isEqual event.eventType "Theatre"}}
             <div
@@ -80,10 +95,13 @@
                     alt="{{event.name}} photo"
                   />
                 </div>
-                <div class="card-footer">
+                <div class="card-footer" style="display: flex; flex-direction: column;">
                   <h5 class="card-title">{{event.name}}</h5>
-                  <p class="card-text">{{formatDate date}}</p>
-                </div>
+                  <div style="display: flex; justify-content: space-between;">
+                      <h6 class="card-text">{{event.location}}</h6>
+                      <p class="card-text">{{formatDate date}}</p>
+                  </div>
+              </div>
               </a>
             </div>
           {{/isEqual}}
@@ -95,8 +113,13 @@
   <div class="row">
     <!-- Sports Events -->
     <section class="col text-center">
-      <h2 class="text-center" style="front-size: 23px; text-align: center; font-weight: 900; padding-bottom: 4px; text-transform: uppercase;"npm run >Sports Events</h2>
-      <div class="d-flex flex-wrap">
+      <h2
+        class="text-center"
+        style="front-size: 23px; text-align: center; font-weight: 900; padding-bottom: 4px; text-transform: uppercase;"
+        npm
+        run
+      >Sports Events</h2>
+      <div class="d-flex flex-wrap justify-content-center">
         {{#each sportsEvents as |event|}}
           {{#isEqual event.eventType "Sports"}}
             <div
@@ -111,10 +134,13 @@
                     alt="{{event.name}} photo"
                   />
                 </div>
-                <div class="card-footer">
+                <div class="card-footer" style="display: flex; flex-direction: column;">
                   <h5 class="card-title">{{event.name}}</h5>
-                  <p class="card-text">{{formatDate date}}</p>
-                </div>
+                  <div style="display: flex; justify-content: space-between;">
+                      <h6 class="card-text">{{event.location}}</h6>
+                      <p class="card-text">{{formatDate date}}</p>
+                  </div>
+              </div>
               </a>
             </div>
           {{/isEqual}}

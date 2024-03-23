@@ -129,6 +129,10 @@ footer {
   text-decoration: none;
   font-size: 14px;
 }
+.card-footer {
+  border-radius: 0px;
+  --bs-card-cap-bg: rgba(51, 89, 255, 0.212) ;
+}
 
 .event-card .card-inner {
   width: inherit;
@@ -177,7 +181,7 @@ footer {
   justify-content: center;
   max-height: 200px;
   padding: 15px;
-  border-radius: 5px;
+  border-radius: 0px;
   margin-right: 10px;
   margin-bottom: 20px;
 }
@@ -254,4 +258,74 @@ footer {
 .card-button:hover {
   background: rgba(16, 127, 255, 0.616);
   color: #f5f5f5;
+}
+
+/*--------------Ticket --------------*/
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.order {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.order p {
+  margin-bottom: 10px;
+}
+
+.order ul {
+  list-style: none;
+  padding: 0;
+}
+
+.order li {
+  margin-bottom: 5px;
+}
+
+.order h3 {
+  font-size: 18px;
+  color: #666;
+  margin-top: 0;
+}
+
+.ticket {
+  background: linear-gradient(to bottom, #ffffff, #f2f2f2);
+  border: 1px dashed #999;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ticket p {
+  margin: 5px 0;
+}
+
+.ticket h4 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/**************LIST ORDER**************/
+
+.order-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-image img {
+  max-width: 100%;
+  height: auto;
 }
