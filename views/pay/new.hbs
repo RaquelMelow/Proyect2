@@ -1,46 +1,47 @@
+<div class="container h-75 min-vh">
+    <div class="row justify-content-center mt-4 align-items-stretch">
+        <div class="col-12 col-md-4 text-center">
+            <div class="card">
+                    <h5 class="card-title fw-light">Create Payment Method</h5>
+                    <form method="post" action="/pay/{{currentUser._id}}/create">
+                        <!-- cardHolder -->
+                        <div class="form-group mb-1">
+                            <label for="name">Card Holder<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control{{#if errors.cardHolder}} is-invalid{{/if}}" name="cardHolder" placeholder="Card Holder" value="{{pay.cardHolder}}">
+                            {{#if errors.cardHolder}}<div class="invalid-feedback">{{errors.cardHolder}}</div>{{/if}}
+                        </div>
 
-<div class="row justify-content-center mt-4 align-items-stretch">
-    <div class="col-12 col-md-4 text-center">
-        <div class="card">
-                <h5 class="card-title fw-light">Create Payment Method</h5>
-                <form method="post" action="/pay/{{currentUser._id}}/create">
-                    <!-- cardHolder -->
-                    <div class="form-group mb-1">
-                        <label for="name">Card Holder<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control{{#if errors.cardHolder}} is-invalid{{/if}}" name="cardHolder" placeholder="Card Holder" value="{{pay.cardHolder}}">
-                        {{#if errors.cardHolder}}<div class="invalid-feedback">{{errors.cardHolder}}</div>{{/if}}
-                    </div>
+                        <!-- cardNumber -->
+                        <div class="form-group mb-1">
+                            <label for="cardNumber">Card Number<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control{{#if errors.cardNumber}} is-invalid{{/if}}" id="cardNumber" name="cardNumber" pattern="\d{16}" title="Must be a 16-digit number" placeholder="Card Number" value="{{pay.cardNumber}}">
+                            {{#if errors.cardNumber}}<div class="invalid-feedback">{{errors.cardNumber}}</div>{{/if}}
+                        </div>
 
-                    <!-- cardNumber -->
-                    <div class="form-group mb-1">
-                        <label for="cardNumber">Card Number<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control{{#if errors.cardNumber}} is-invalid{{/if}}" id="cardNumber" name="cardNumber" pattern="\d{16}" title="Must be a 16-digit number" placeholder="Card Number" value="{{pay.cardNumber}}">
-                        {{#if errors.cardNumber}}<div class="invalid-feedback">{{errors.cardNumber}}</div>{{/if}}
-                    </div>
+                        <!-- cvv-->
+                        <div class="form-group mb-1">
+                            <label for="cvv">CVV<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control{{#if errors.cvv}} is-invalid{{/if}}" id="cvv" name="cvv" pattern="[0-9]{3}" title="Must be a 3-digit number" placeholder="cvv" value="{{event.cvv}}">
+                            {{#if errors.cvv}}<div class="invalid-feedback">{{errors.cvv}}</div>{{/if}}
+                        </div>
 
-                    <!-- cvv-->
-                    <div class="form-group mb-1">
-                        <label for="cvv">CVV<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control{{#if errors.cvv}} is-invalid{{/if}}" id="cvv" name="cvv" pattern="[0-9]{3}" title="Must be a 3-digit number" placeholder="cvv" value="{{event.cvv}}">
-                        {{#if errors.cvv}}<div class="invalid-feedback">{{errors.cvv}}</div>{{/if}}
-                    </div>
+                        <!-- EXPIRATIONDATE -->
+                        <div class="form-group mb-1">
+                            <label for="expirationDate">Expiration Date (MM/YY)<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control{{#if errors.expirationDate}} is-invalid{{/if}}" id="expirationDate" name="expirationDate" pattern="\d{2}/\d{2}" title="Must be in MM/YY format" placeholder="Expiration Date (MM/YY)" value="{{event.expirationDate}}">
+                            {{#if errors.expirationDate}}<div class="invalid-feedback">{{errors.expirationDate}}</div>{{/if}}
+                        </div>
 
-                    <!-- EXPIRATIONDATE -->
-                    <div class="form-group mb-1">
-                        <label for="expirationDate">Expiration Date (MM/YY)<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control{{#if errors.expirationDate}} is-invalid{{/if}}" id="expirationDate" name="expirationDate" pattern="\d{2}/\d{2}" title="Must be in MM/YY format" placeholder="Expiration Date (MM/YY)" value="{{event.expirationDate}}">
-                        {{#if errors.expirationDate}}<div class="invalid-feedback">{{errors.expirationDate}}</div>{{/if}}
-                    </div>
+                        <div class="form-group">
+                            <h6><span class="text-danger">*</span>These fields are required</h6>
+                        </div>
 
-                    <div class="form-group">
-                        <h6><span class="text-danger">*</span>These fields are required</h6>
-                    </div>
-
-                    <div class="d-grid gap-2 mt-2">
-                        <button type="submit" class="btn btn-primary">Submit Payment</button>
-                    </div>
-                </form>
-            
+                        <div class="d-grid gap-2 mt-2">
+                            <button type="submit" class="btn btn-primary">Submit Payment</button>
+                        </div>
+                    </form>
+                
+            </div>
         </div>
     </div>
 </div>

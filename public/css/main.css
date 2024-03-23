@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 .logo {
   background-image: url("../img/navbar/logoironticket.png");
   background-size: contain;
@@ -14,7 +16,7 @@
 }
 
 body {
-  font-family: Arial;
+  font-family: "Roboto", sans-serif;
 }
 
 html,
@@ -131,8 +133,14 @@ footer {
 }
 .card-footer {
   border-radius: 0px;
-  --bs-card-cap-bg: rgba(51, 89, 255, 0.212) ;
+  background: rgb(95,253,255);
+  background: -moz-linear-gradient(0deg, rgba(95,253,255,0) 0%, rgba(45,133,253,0.5830707282913166) 100%);
+  background: -webkit-linear-gradient(0deg, rgba(95,253,255,0) 0%, rgba(45,133,253,0.5830707282913166) 100%);
+  background: linear-gradient(0deg, rgba(95,253,255,0) 0%, rgba(45,133,253,0.5830707282913166) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5ffdff",endColorstr="#2d85fd",GradientType=1);
 }
+
+
 
 .event-card .card-inner {
   width: inherit;
@@ -261,10 +269,10 @@ footer {
 }
 
 /*--------------Ticket --------------*/
-.container {
+.ticket {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding:20px;
 }
 
 h2 {
@@ -276,7 +284,6 @@ h2 {
 .order {
   background-color: #f9f9f9;
   border: 1px solid #ccc;
-  padding: 20px;
   margin-bottom: 20px;
 }
 
@@ -299,14 +306,6 @@ h2 {
   margin-top: 0;
 }
 
-.ticket {
-  background: linear-gradient(to bottom, #ffffff, #f2f2f2);
-  border: 1px dashed #999;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
 .ticket p {
   margin: 5px 0;
@@ -328,4 +327,28 @@ h2 {
 .event-image img {
   max-width: 100%;
   height: auto;
+}
+
+/******************BUY BUTTON*************/
+
+.buy-button {
+  background: #f4f27ae6;
+  font-family: inherit;
+  padding: 0.6em 1.3em;
+  font-weight: 900;
+  font-size: 18px;
+  border: 3px solid black;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
+  cursor: pointer;
+}
+
+.buy-button:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em;
+}
+
+.buy-button:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em;
 }

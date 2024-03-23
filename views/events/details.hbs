@@ -10,14 +10,15 @@
     </div>
     <!-- Right Box -->
     <div class="col-md-6 right-box">
-      <div class="row align-items-center" style="text-align: center;">
-        <h1>{{event.name}}</h1>
+       <h1  style="text-align: center;">{{event.name}}</h1>
+       <hr>
+      <div class="row align-items-center" style="text-align: justify;">
         <p>{{event.info}}</p>
 
         {{#if tickets}}
           <form id="order" action="/events/{{event._id}}/orders" method="POST">
             <select
-              class="form-select"
+              class="form-select mb-3"
               aria-label="Select ticket"
               name="idTicket"
             >
@@ -25,14 +26,19 @@
               {{#each tickets}}
                 <option value="{{this._id}}">{{this.ticketType}}
                   <p>- Unit price:</p>{{this.price}}<p> €</p></option>
-                
+      
               {{/each}}
+            </select>
 
+            <label style=" margin-left:5px; margin-right: 115px;" for="quantity">  Quantity:</label>
+            
             <input type="number" name="quantity" min="1" required />
+            
+
 
             
             <select
-              class="form-select"
+              class="form-select mt-3 mb-3"
               aria-label="Select your methods payment"
               name="idPay"
             >
@@ -41,10 +47,12 @@
                <option value="{{this._id}}">{{creditCard this.cardNumber}}
               {{/each}}
             </select>
-            <button type="submit">Buy Tickets</button>
+             <div class="text-center">
+              <button class="buy-button" type="submit">Buy Tickets</button>
+            </div>
           </form>
         {{else}}
-          <p>No tickets are currently available for this event.</p>
+          <p class="text-danger">No tickets are currently available for this event.</p>
         {{/if}}
       </div>
     </div>
