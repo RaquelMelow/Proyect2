@@ -5,7 +5,7 @@ const dayjs = require("../configs/dayjs.config");
 hbs.registerPartials(path.join(__dirname, "../views/partials"));
 
 hbs.registerHelper("formatDate", (date, format, options) => {
-  const formatDate = dayjs(date).format("YYYY-MM-DD");
+  const formatDate = dayjs(date).format("DD-MM-YYYY");
   return formatDate;
 });
 
