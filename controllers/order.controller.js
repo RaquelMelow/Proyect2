@@ -51,15 +51,15 @@ module.exports.list = (req, res, next) => {
 }
 
 module.exports.confirmed = (req, res, next) => {
-  Order
-       .findOne({_id: req.params.idOrder })
-       .then(order => {
-        if(order) {
-          res.render('order/confirmed', { msg: 'Congratulations! Your order is completed, enjoy your experience.', success: true, order})
-        } else {
-          res.render('order/confirmed', { msg: 'An error ocurred while purchasing your ticket. Try again!', success: false})
-        }
-       })
-
-  
-}
+  Order.findOne({ _id: req.params.idOrder })
+    .then(order => {
+      if (order) {
+        res.render('order/confirmed', { msg: 'Congratulations! Your order is completed, enjoy your experience.', success: true, order });
+      } else {
+        res.render('order/confirmed', { msg: 'An error occurred while purchasing your ticket. Try again!', success: false });
+      }
+    })
+    .catch(error => {
+      next(error);
+    });
+};

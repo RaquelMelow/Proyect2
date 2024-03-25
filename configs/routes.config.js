@@ -36,7 +36,7 @@ router.post('/events/:idEvent/edit', secure.isAuthenticated, secure.isAdmin, mul
 router.get('/events/type/:eventType', events.type);
 
 
-// Tickets CRUD - only ADMIN -Cambiar ruta
+// Tickets CRUD - only ADMIN 
 router.get('/ticket/:idEvent/create', secure.isAuthenticated, secure.isAdmin, ticket.create);
 router.post('/ticket/:idEvent/create', secure.isAuthenticated, secure.isAdmin, ticket.doCreate);
 
@@ -54,6 +54,8 @@ router.get('/pay/:idUser/create', secure.isAuthenticated, pay.create);
 router.post('/pay/:idUser/create', secure.isAuthenticated, pay.doCreate);
 router.post('/pay/:idUser/:idPay/delete', secure.isAuthenticated, pay.doDelete);
 
+//Ticket CRUD - User
+router.get('/ticket/:idTicket/file', secure.isAuthenticated, ticket.file);
 
 // Info- footer
 router.get('/about-us', info.aboutUs);

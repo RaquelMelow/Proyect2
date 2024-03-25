@@ -103,6 +103,8 @@ footer {
   background-color: transparent;
   color: transparent;
 }
+
+
 /* ------------------------CARDS EVENT LIST------------------------ */
 
 .event-list {
@@ -135,8 +137,8 @@ footer {
   border-radius: 0px;
   background: rgb(95,253,255);
   background: -moz-linear-gradient(0deg, rgba(95,253,255,0) 0%, rgba(45,133,253,0.5830707282913166) 100%);
-  background: -webkit-linear-gradient(0deg, rgba(95,253,255,0) 0%, rgba(45,133,253,0.5830707282913166) 100%);
-  background: linear-gradient(0deg, rgba(95,253,255,0) 0%, rgba(45,133,253,0.5830707282913166) 100%);
+  background: -webkit-linear-gradient(0deg, rgba(95,253,255,0) 0%, rgba(45, 132, 253, 0.212) 100%);
+  background: linear-gradient(0deg, rgba(95,253,255,0) 0%, rgba(45, 132, 253, 0.322) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5ffdff",endColorstr="#2d85fd",GradientType=1);
 }
 
