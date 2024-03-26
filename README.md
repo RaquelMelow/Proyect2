@@ -1,13 +1,38 @@
-Irontickets is a web application that functions similarly to Ticketmaster, allowing users to explore, search, and purchase tickets for live events. The application is built with modern web technologies and provides an intuitive interface to enhance the user experience.
+README for proyect2.fly.dev
+Description
 
-Key Features
+This web project showcases a sample web application displaying events of a specific type. It allows users to view a list of events, with the ability to filter by event type.
 
-Explore Events: Users can browse a list of available events, filter by categories, dates, and locations to find events of interest.
+Features:
 
-Search Events: The search feature enables users to search for specific events using keywords, artist names, or locations.
+Display a list of events.
+Filter events by type.
+Show details for each event, including name, location, and date.
+Responsive design for optimal experience across devices.
+Technologies Used:
 
-Event Details: Each event has a detailed page displaying additional information such as artists, date, location, and ticket purchasing options.
+Frontend:
+HTML
+CSS
+JavaScript
+Handlebars
+Backend (Assumed):
+Node.js
+Express
+MongoDB (Please replace if backend details are different)
+Using the Application:
 
-Ticket Purchase: Users can select their desired ticket type and proceed with a secure and fast checkout process.
+Access the web application at https://proyect2.fly.dev/.
+Select an event type from the dropdown menu.
+The list of events will update to show only events of the selected type.
+Click on an event to view its details.
+Note: This web application is a sample and is not intended for production use.
 
-User Management: Users can register, log in, and manage their profiles, including payment information and preferences.
+Contributing:
+
+This project is open-source, and community involvement is encouraged. If you'd like to contribute, you can do so by:
+
+Forking this repository on GitHub.
+Creating a new branch for your change.
+Implementing your change and ensuring tests pass (if applicable).
+Submitting a pull request to the main repository.
