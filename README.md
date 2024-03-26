@@ -1,4 +1,6 @@
 README for proyect2.fly.dev
+
+
 Description
 
 This web project showcases a sample web application displaying events of a specific type. It allows users to view a list of events, with the ability to filter by event type.
