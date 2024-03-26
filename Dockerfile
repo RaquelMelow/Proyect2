@@ -1,13 +1,4 @@
 # syntax = docker/dockerfile:1
-FROM node:20
-WORKKIR /app
-
-COPY package.json /app/package.json
-COPY package-lock.json /app/package-lock.json
-
-RUN npm install
-
-COPY ./app
 
 # Adjust NODE_VERSION as desired
 ARG NODE_VERSION=20.10.0
@@ -45,4 +36,4 @@ COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD [ "npm", "start" ]
+CMD [ "npm", "run", "start" ]
