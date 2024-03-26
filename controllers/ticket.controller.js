@@ -36,15 +36,28 @@ module.exports.doCreate = (req, res, next) => {
 
 
 module.exports.file = (req, res, next) => {
+  
+  const ticketId = req.params.idTicket;
+  const pdfPath = path.join(__dirname, '..', 'public', 'tickets', `${ticketId}.pdf`);
+
   const doc = new jsPDF();
+  doc.text(`Ticket ID: ${ticketId}`, 10, 10);
 
+    doc.save(pdfPath);
+    
+    res.sendFile(pdfPath, (err) => {
+      if (err) {
+        console.error("Error sending PDF:", err);
+        return next(err);
+      } else {
+        fs.unlink(pdfPath, (err) => {
+          if (err) {
+            console.error("Error deleting PDF file:", err);
+          } else {
+            console.log("PDF file deleted successfully");
+          }
+        });
+      }
+    });
 
-  doc.text(`Order ID: ${order._id}`, 10, 10);
-  doc.text(`Event Name: ${order.idEvent.name}`, 10, 20);
-  doc.text(`Total: ${order.total}`, 10, 30);
-
-  const pdfPath = path.join(__dirname, "..", "public", "tickets", `${order._id}.pdf`);
-  doc.save(pdfPath);
-
-  res.sendFile(pdfPath);
 }
